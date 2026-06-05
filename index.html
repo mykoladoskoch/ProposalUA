@@ -145,23 +145,6 @@
   .highlightprice .big{font-family:var(--display);font-size:24px;color:var(--blue);font-weight:700}
   .highlightprice .cap{font-size:12.5px;color:var(--muted)}
 
-  .tech{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
-  .techcard{border-radius:14px;padding:24px;box-shadow:var(--shadow)}
-  .techcard.old{background:#f4f1e8;border:1px solid var(--line)}
-  .techcard.new{background:var(--navy);color:#eaf1fa}
-  .techcard .tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
-  .techcard.old .tag{color:var(--muted)}.techcard.new .tag{color:var(--gold)}
-  .techcard .stackname{font-family:var(--display);font-size:21px;font-weight:600;line-height:1.15}
-  .techcard.old .stackname{color:var(--navy)}.techcard.new .stackname{color:#fff}
-  .techcard .since{font-size:13px;margin-top:4px}
-  .techcard.old .since{color:var(--muted)}.techcard.new .since{color:#9fc0e6}
-  .techcard ul{list-style:none;margin-top:16px}
-  .techcard li{position:relative;padding-left:24px;margin-top:11px;font-size:14px;line-height:1.45}
-  .techcard.old li::before{content:"–";position:absolute;left:2px;top:0;color:#b08a8a;font-weight:700}
-  .techcard.new li::before{content:"✓";position:absolute;left:0;top:0;color:var(--gold);font-weight:700}
-  .techcard .means{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);font-size:13px}
-  .techcard.old .means{border-top-color:var(--line);color:var(--muted)}.techcard.new .means{color:#c7d6ea}
-
   .cmp{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
   table{width:100%;border-collapse:collapse}
   .cmp th,.cmp td{padding:15px 18px;text-align:left;font-size:15px;vertical-align:top}
@@ -173,21 +156,6 @@
   .cmp .new{color:var(--ink);width:38%}
   .cmp .new b{color:var(--navy)}
   .x{color:#b08a8a;font-weight:700;margin-right:6px}.chk{color:var(--good);font-weight:700;margin-right:6px}
-
-  .seo{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-  .seo .intro{padding:24px 26px 8px;font-size:15.5px;color:var(--ink)}
-  .seo .intro b{color:var(--navy)}
-  .seosteps{display:grid;grid-template-columns:repeat(3,1fr);padding:18px 26px 28px}
-  .seostep{padding:18px;border-radius:12px;border:1px solid var(--line);margin:0 6px}
-  .seostep:first-child{margin-left:0}.seostep:last-child{margin-right:0}
-  .seostep.s1{background:#faf8f2}
-  .seostep.s2{background:rgba(0,87,183,.06);border-color:rgba(0,87,183,.2)}
-  .seostep.s3{background:var(--navy);color:#eaf1fa;border-color:var(--navy)}
-  .seostep .lvl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--blue)}
-  .seostep.s3 .lvl{color:var(--gold)}
-  .seostep h4{font-family:var(--display);font-size:16px;margin-top:6px;color:var(--navy);font-weight:600}
-  .seostep.s3 h4{color:#fff}
-  .seostep p{font-size:13px;margin-top:8px;color:var(--muted)}.seostep.s3 p{color:#c7d6ea}
 
   /* hosting */
   .host{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
@@ -225,20 +193,6 @@
   .custom p{font-size:14px;color:var(--muted);margin-top:4px}
   .custom .cta{background:var(--blue);color:#fff;font-size:13px;font-weight:700;padding:11px 20px;border-radius:9px;white-space:nowrap}
 
-  .matrix{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
-  .matrix th,.matrix td{padding:12px 16px;font-size:14px;text-align:center}
-  .matrix thead th{background:var(--navy);color:#fff;font-weight:600;font-size:13px}
-  .matrix thead th.rec{background:var(--blue)}
-  .matrix tbody td{border-top:1px solid var(--line)}
-  .matrix .rowlabel{text-align:left;font-weight:600;color:var(--navy);width:40%}
-  .matrix tbody tr:nth-child(even){background:#faf8f2}
-  .matrix .reccol{background:rgba(0,87,183,.05)}
-  .matrix .grouphdr td{background:#f1ede2;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted);text-align:left;padding:9px 16px}
-  .matrix .priceR td{font-family:var(--display);color:var(--navy);font-weight:700;font-size:16px;border-top:2px solid var(--line-strong)}
-  .yes{color:var(--good);font-weight:800;font-size:16px}
-  .no{color:#c9c2b3;font-weight:700}
-  .part{color:var(--ink);font-size:12.5px;line-height:1.35;font-weight:500}
-
   .steps{counter-reset:s;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;position:relative;box-shadow:var(--shadow)}
   .step::before{counter-increment:s;content:counter(s);font-family:var(--display);font-weight:700;color:var(--gold);font-size:30px;line-height:1;float:right;margin-top:-4px}
@@ -257,11 +211,9 @@
   @keyframes rise{to{opacity:1;transform:none}}
 
   @media (max-width:720px){
-    .grid2,.tiers,.steps,.sign,.tech,.seosteps{grid-template-columns:1fr}
+    .grid2,.tiers,.steps,.sign{grid-template-columns:1fr}
     .tier.feature{transform:none}
     .cmp .feat,.cmp .old,.cmp .new{width:auto}
-    .matrix{overflow-x:auto;display:block}
-    .seostep{margin:6px 0}
     .pv .hero{grid-template-columns:1fr}
     .custom{grid-template-columns:1fr;text-align:center}
   }
@@ -304,13 +256,6 @@
     .host .htable .rec td{background:transparent}
     .host .htable tr.rec{background:rgba(0,87,183,.05)}
 
-    /* matrix → compact so all four columns fit */
-    .matrix th,.matrix td{padding:9px 6px;font-size:12px}
-    .matrix thead th{font-size:11px}
-    .matrix .rowlabel{width:46%;font-size:12px}
-    .matrix .grouphdr td{font-size:10px;padding:8px 8px}
-    .matrix .priceR td{font-size:13.5px}
-
     /* misc */
     .terms .ln{flex-direction:column;gap:1px}
     .terms .ln .k{min-width:0}
@@ -322,7 +267,7 @@
     .reveal{animation:none;opacity:1;transform:none}
     .tier.feature{transform:none;box-shadow:none}
     section{page-break-inside:avoid}
-    .cmp,.matrix,.tier,.summary,.step,.techcard,.seo,.host,.browser{box-shadow:none}
+    .cmp,.tier,.summary,.step,.host,.browser{box-shadow:none}
     .pv{max-height:none;overflow:visible}
     *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   }
@@ -471,18 +416,11 @@
 
   <!-- WHAT'S BUILT / WORTH -->
   <section class="reveal" style="animation-delay:.1s">
-    <div class="eyebrow">What&rsquo;s already designed — and what it&rsquo;s worth</div>
+    <div class="eyebrow">What it&rsquo;s worth</div>
     <h2>A full custom design, not a template.</h2>
     <div class="grid2">
       <div class="built">
-        <p style="color:var(--muted);margin-bottom:6px">Already designed and built into the sample:</p>
-        <ul>
-          <li>Every page from your current site, redesigned with a fresh, professional, mobile-friendly look in your colors.</li>
-          <li>A built-in news &amp; announcements section to keep your community informed.</li>
-          <li>Four interactive calculators (premium, retirement, life-insurance-need, and final-expense estimates).</li>
-          <li>Modern search-engine setup, fast loading, and full https security throughout.</li>
-          <li>Ukrainian identity built in — your tryzub and traditional vyshyvanka detailing.</li>
-        </ul>
+        <p class="lead">The sample already covers every page of your current site — redesigned, mobile-friendly, and in your blue-and-gold colors — with a news section, four interactive calculators, modern search setup, and your Ukrainian detailing throughout. The heavy design work is done; the packages below are about finishing and launching it.</p>
       </div>
       <div class="worthcard">
         <div class="ttl">What this normally costs</div>
@@ -491,42 +429,8 @@
         <div class="worthrow"><span>This project — your packages from</span><b>$3,500</b></div>
         <div class="highlightprice">
           <div class="big">A fraction of agency price</div>
-          <div class="cap">The design work is already done — and the modern platform costs less to run than your current one. Custom-grade quality, without the custom-grade price.</div>
+          <div class="cap">Custom-grade quality, without the custom-grade price — and the modern platform costs less to run than your current one.</div>
         </div>
-        <p class="worthnote">Figures reflect 2026 New Jersey and national web-development rates for a site of this size and capability.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECHNOLOGY -->
-  <section class="reveal" style="animation-delay:.12s">
-    <div class="eyebrow">The technology behind it</div>
-    <h2>Built on a stronger foundation.</h2>
-    <p>Your website&rsquo;s &ldquo;engine&rdquo; matters more than it looks. Here&rsquo;s the plain-English difference between what runs your site today and what runs the new one.</p>
-    <div class="tech">
-      <div class="techcard old">
-        <div class="tag">● Your site today</div>
-        <div class="stackname">WordPress + plug-ins</div>
-        <div class="since">Hosted on BlueJet shared hosting.</div>
-        <ul>
-          <li>Relies on many add-on plug-ins that must be updated constantly</li>
-          <li>One of the most frequently hacked platforms on the web</li>
-          <li>Tends to slow down as plug-ins pile up</li>
-          <li>Some plug-ins charge yearly renewal fees</li>
-        </ul>
-        <div class="means"><b>What it means for you:</b> ongoing maintenance, security worry, and recurring costs.</div>
-      </div>
-      <div class="techcard new">
-        <div class="tag">★ Your new site</div>
-        <div class="stackname">React &amp; Next.js, on Vercel</div>
-        <div class="since">The same modern technology behind sites like Netflix and OpenAI.</div>
-        <ul>
-          <li>No fragile plug-ins to update, renew, or get hacked</li>
-          <li>Pages load almost instantly, on any device</li>
-          <li>Far more secure — important for a financial organization</li>
-          <li>Lower running costs and far less to maintain</li>
-        </ul>
-        <div class="means"><b>What it means for you:</b> a fast, safe, low-maintenance site that also ranks better on Google and AI.</div>
       </div>
     </div>
   </section>
@@ -541,7 +445,7 @@
         <tbody>
           <tr><td class="feat">Look &amp; feel</td><td class="old"><span class="x">–</span>Dated design, last refreshed years ago</td><td class="new"><span class="chk">✓</span><b>Modern, clean, and professional</b>, in your blue-and-gold colors</td></tr>
           <tr><td class="feat">On phones</td><td class="old"><span class="x">–</span>Awkward and hard to read on a phone</td><td class="new"><span class="chk">✓</span>Looks great on <b>phones, tablets, and computers</b></td></tr>
-          <tr><td class="feat">Technology &amp; upkeep</td><td class="old"><span class="x">–</span>WordPress + plug-ins; constant updates &amp; security risk</td><td class="new"><span class="chk">✓</span><b>Modern, low-maintenance platform</b> with far stronger security</td></tr>
+          <tr><td class="feat">Technology &amp; upkeep</td><td class="old"><span class="x">–</span>WordPress + plug-ins; constant updates &amp; security risk</td><td class="new"><span class="chk">✓</span><b>Modern, low-maintenance platform</b> — the same technology behind Netflix &amp; OpenAI — with far stronger security</td></tr>
           <tr><td class="feat">Ukrainian language</td><td class="old"><span class="x">–</span>Mixed into the same pages, hard to follow</td><td class="new"><span class="chk">✓</span><b>One-click switch</b> between English and Українська <em>(Complete &amp; Care)</em></td></tr>
           <tr><td class="feat">Helpful tools</td><td class="old"><span class="x">–</span>Static pages only</td><td class="new"><span class="chk">✓</span><b>Interactive calculators</b> <em>(Complete &amp; Care)</em></td></tr>
           <tr><td class="feat">Getting new members</td><td class="old"><span class="x">–</span>No easy way for visitors to reach you</td><td class="new"><span class="chk">✓</span><b>&ldquo;Request a consultation&rdquo; form</b> sent straight to your office</td></tr>
@@ -553,47 +457,11 @@
     </div>
   </section>
 
-  <!-- SEO + AI -->
-  <section class="reveal" style="animation-delay:.15s">
-    <div class="eyebrow">Being found — on Google and by AI</div>
-    <h2>People search differently now.</h2>
-    <p>Families find an organization like yours two ways now: traditional Google search, and increasingly by <b>asking an AI assistant</b> — ChatGPT, Gemini, or Google&rsquo;s own AI answers. Here&rsquo;s how visibility grows with each package.</p>
-    <div class="seo">
-      <div class="intro"><b>Why the platform helps:</b> the modern technology produces clean, fast, well-organized pages — exactly what both Google and AI systems prefer when deciding who to show and quote.</div>
-      <div class="seosteps">
-        <div class="seostep s1">
-          <div class="lvl">Launch — foundations</div>
-          <h4>Solid Google SEO</h4>
-          <p>Fast, mobile-first pages, a search sitemap, and clean code so Google can find and index every page. <em>(Standard search engines — AI optimization is part of the higher packages.)</em></p>
-        </div>
-        <div class="seostep s2">
-          <div class="lvl">Complete — advanced</div>
-          <h4>SEO + AI search</h4>
-          <p>Everything in Launch, plus ranking protection and structured data that helps Google show rich results <em>and</em> helps AI assistants understand and cite you — in English and Ukrainian.</p>
-        </div>
-        <div class="seostep s3">
-          <div class="lvl">+ Care — monitored</div>
-          <h4>Watched &amp; tuned</h4>
-          <p>We monitor your Google and AI visibility and keep it tuned throughout your 6-month support window.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- HOSTING -->
   <section class="reveal" style="animation-delay:.16s">
     <div class="eyebrow">Where it lives &amp; what it costs to run</div>
     <h2>Hosting, in plain terms.</h2>
     <p>Your new site runs on <b>Vercel</b> — the platform purpose-built for this technology and used by major companies worldwide. Here&rsquo;s what keeping it online costs.</p>
-    <div style="margin-top:18px;background:#faf8f2;border:1px solid var(--line);border-radius:12px;padding:18px 22px">
-      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--blue);margin-bottom:12px">Why Vercel, not your old BlueJet host?</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px 26px;font-size:14px;color:var(--ink)">
-        <div><b style="color:var(--navy)">Faster</b> — pages load almost instantly, even on a phone.</div>
-        <div><b style="color:var(--navy)">More reliable</b> — built to stay online around the clock.</div>
-        <div><b style="color:var(--navy)">More secure</b> — nothing for hackers to break into the way old plug-ins get hacked.</div>
-        <div><b style="color:var(--navy)">No upkeep</b> — no software to patch, update, or renew.</div>
-      </div>
-    </div>
     <div class="host">
       <table class="htable">
         <thead><tr><th>Vercel plan</th><th>Cost</th><th>For Providence</th></tr></thead>
@@ -606,13 +474,7 @@
       <div class="hostnote">
         <div class="ic">i</div>
         <div>
-          <b>Plus your domain &amp; email — and yes, BlueJet stays.</b> Your web address (provassn.com) renews at your registrar (about $15–20/year). Your site can&rsquo;t run <em>on</em> BlueJet — that older platform is built for WordPress, which is exactly why we move to Vercel — but your <b>domain and your BlueJet email accounts stay exactly where they are</b>. We simply point your web address at the new site; <b>your email is untouched and keeps working as it does today.</b>
-        </div>
-      </div>
-      <div class="hostnote" style="border-top:1px dashed var(--line)">
-        <div class="ic" style="background:var(--blue)">$</div>
-        <div>
-          <b>Who handles it:</b> on every package we set everything up on Vercel and hand you the account — you pay Vercel directly (about $20/month). We&rsquo;ll walk you through it so there are no surprises.
+          <b>Your domain &amp; email stay put.</b> provassn.com renews at your registrar (~$15&ndash;20/year) and your <b>BlueJet email is untouched</b> — we simply point your web address at the new site. On every package we set everything up on Vercel and hand you the account; you pay Vercel directly (about $20/month).
         </div>
       </div>
     </div>
@@ -703,45 +565,6 @@
       </div>
       <div class="cta">Request a custom quote</div>
     </div>
-  </section>
-
-  <!-- MATRIX -->
-  <section class="reveal" style="animation-delay:.19s">
-    <div class="eyebrow">Side-by-side</div>
-    <h2>What&rsquo;s included in each.</h2>
-    <div class="matrix">
-      <table>
-        <thead>
-          <tr><th class="rowlabel" style="text-align:left">Feature</th><th>Launch</th><th class="rec">Complete</th><th>+ Care</th></tr>
-        </thead>
-        <tbody>
-          <tr class="grouphdr"><td colspan="4">The website</td></tr>
-          <tr><td class="rowlabel">Modern, mobile-friendly website</td><td class="yes">✓</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">Modern, secure platform on Vercel</td><td class="yes">✓</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">Launched on your domain, secure (https)</td><td class="yes">✓</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">Interactive calculators</td><td class="no">–</td><td class="reccol part">All 4</td><td class="part">All 4</td></tr>
-          <tr><td class="rowlabel">Ukrainian-language version (one-click)</td><td class="no">–</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">Professional copy &amp; proofreading (EN + UA)</td><td class="no">–</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">Accessibility pass</td><td class="no">–</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
-
-          <tr class="grouphdr"><td colspan="4">Getting found &amp; getting leads</td></tr>
-          <tr><td class="rowlabel">SEO foundations (Google search)</td><td class="yes">✓</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">AI search optimization (ChatGPT, Gemini, etc.)</td><td class="no">–</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">Consultation / lead form</td><td class="part">Email only</td><td class="reccol part">+ spam filter + auto-reply</td><td class="part">+ spam filter + auto-reply</td></tr>
-
-          <tr class="grouphdr"><td colspan="4">Security, help &amp; support</td></tr>
-          <tr><td class="rowlabel">Old news &amp; content moved over</td><td class="no">–</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">Improved security hardening</td><td class="no">–</td><td class="reccol no">–</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">Visitor analytics installed</td><td class="no">–</td><td class="reccol no">–</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">Site monitoring</td><td class="no">–</td><td class="reccol no">–</td><td class="yes">✓</td></tr>
-          <tr><td class="rowlabel">Post-launch support</td><td class="part">30 days</td><td class="reccol part">30 days</td><td class="part">6 months</td></tr>
-
-          <tr><td class="rowlabel">Ready in</td><td class="part">~2 weeks</td><td class="reccol part">~3.5 weeks</td><td class="part">~5 weeks</td></tr>
-          <tr class="priceR"><td class="rowlabel">Price</td><td>$3,500</td><td class="reccol">$5,000</td><td>$8,000</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:12.5px;color:var(--muted);margin-top:12px">All three packages are one-time payments. Vercel hosting (about $20/month) and your domain renewal (~$15–20/year) are paid directly to those providers on every package.</p>
   </section>
 
   <!-- HOW IT WORKS -->
