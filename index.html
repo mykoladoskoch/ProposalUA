@@ -265,6 +265,58 @@
     .pv .hero{grid-template-columns:1fr}
     .custom{grid-template-columns:1fr;text-align:center}
   }
+
+  /* ---------- PHONES ---------- */
+  @media (max-width:560px){
+    .sheet{padding:0 16px 64px}
+    .masthead{padding:44px 0 30px}
+    .summary .body{padding:24px 20px 28px}
+
+    /* preview mockup → real mobile homepage */
+    .pv .navlinks{display:none}
+    .pv .nav{padding:12px 16px}
+    .pv .nav::after{content:"\2261";color:var(--navy);font-size:24px;font-weight:800;line-height:.6}
+    .pv .hero{padding:22px 16px}
+    .pv h1{font-size:26px}
+    .pv .stats{grid-template-columns:repeat(2,1fr);gap:16px 4px;padding:18px 12px}
+    .pv .pgrid,.pv .comm,.pv .contact,.pv .cta2{grid-template-columns:1fr}
+    .pv .prods,.pv .why,.pv .comm{padding-left:16px;padding-right:16px}
+    .pv .contact{padding:18px 16px;gap:16px}
+    .pv .cta2{margin:0 16px 16px}
+
+    /* comparison table → stacked cards */
+    .cmp table,.cmp tbody,.cmp tr,.cmp td{display:block;width:100%}
+    .cmp thead{display:none}
+    .cmp tbody tr{border-top:1px solid var(--line);padding:8px 0 12px}
+    .cmp tbody tr:nth-child(even){background:transparent}
+    .cmp td{border:0;padding:3px 16px}
+    .cmp td .x,.cmp td .chk{display:none}
+    .cmp .feat{font-family:var(--display);font-weight:600;font-size:18px;color:var(--navy);padding-top:14px;padding-bottom:3px}
+    .cmp .old::before{content:"Now — ";font-weight:700;color:var(--muted)}
+    .cmp .new::before{content:"New — ";font-weight:700;color:var(--blue)}
+
+    /* hosting table → stacked cards */
+    .host .htable,.host .htable tbody,.host .htable tr,.host .htable td{display:block;width:100%}
+    .host .htable thead{display:none}
+    .host .htable tbody tr{border-top:1px solid var(--line);padding:10px 0 12px}
+    .host .htable td{border:0;padding:2px 18px}
+    .host .htable .plan{font-size:16px;padding-top:6px}
+    .host .htable .rec td{background:transparent}
+    .host .htable tr.rec{background:rgba(0,87,183,.05)}
+
+    /* matrix → compact so all four columns fit */
+    .matrix th,.matrix td{padding:9px 6px;font-size:12px}
+    .matrix thead th{font-size:11px}
+    .matrix .rowlabel{width:46%;font-size:12px}
+    .matrix .grouphdr td{font-size:10px;padding:8px 8px}
+    .matrix .priceR td{font-size:13.5px}
+
+    /* misc */
+    .terms .ln{flex-direction:column;gap:1px}
+    .terms .ln .k{min-width:0}
+    .sign{gap:26px}
+    .footer{gap:6px}
+  }
   @media print{
     body{background:#fff}
     .reveal{animation:none;opacity:1;transform:none}
