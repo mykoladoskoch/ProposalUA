@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Modernization Proposal · Providence Association</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Libre+Franklin:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b2a4a;--blue:#0057b7;--gold:#ffd400;--ink:#1d2533;--muted:#6b675c;
+    --paper:#fbfaf6;--card:#ffffff;--line:#e7e2d6;--line-strong:#d6cfbe;--good:#0057b7;
+    --shadow:0 1px 2px rgba(11,42,74,.04),0 10px 30px rgba(11,42,74,.06);
+    --display:'Fraunces',Georgia,serif;--body:'Libre Franklin',-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px}
+  .sheet{max-width:880px;margin:0 auto;padding:0 28px 80px}
+  .flag{height:5px;width:100%;background:linear-gradient(90deg,var(--blue) 0 50%,var(--gold) 50% 100%)}
+
+  .masthead{padding:56px 0 38px;border-bottom:1px solid var(--line)}
+  .kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  .masthead h1{font-family:var(--display);font-weight:600;color:var(--navy);font-size:clamp(34px,6vw,54px);line-height:1.02;letter-spacing:-.01em;margin-top:14px}
+  .masthead .sub{font-size:18px;color:var(--muted);margin-top:16px;max-width:34em}
+  .meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:28px;font-size:14px}
+  .meta .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .meta .val{color:var(--navy);font-weight:600;margin-top:2px}
+
+  section{padding-top:46px}
+  .eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--blue);margin-bottom:18px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold)}
+  h2{font-family:var(--display);font-weight:600;color:var(--navy);font-size:clamp(24px,3.4vw,32px);line-height:1.1;letter-spacing:-.01em}
+  h2 + p{margin-top:12px;color:var(--muted);max-width:42em}
+  p.lead{font-size:17px}
+
+  .summary{margin-top:30px;background:var(--navy);color:#eef3fa;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+  .summary .body{padding:30px 32px 34px}
+  .summary h3{font-family:var(--display);color:#fff;font-size:22px;font-weight:600}
+  .summary p{margin-top:10px;color:#c7d6ea;font-size:15.5px}
+  .summary .row{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px}
+  .pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 16px;font-size:13.5px;color:#dce7f5;font-weight:500}
+  .pill b{color:var(--gold);font-weight:700}
+
+  /* ---------- PREVIEW MOCKUP ---------- */
+  .browser{margin-top:24px;border-radius:14px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:0 20px 50px rgba(11,42,74,.14);background:#fff}
+  .bbar{display:flex;align-items:center;gap:8px;background:#e9e4d8;padding:10px 14px;border-bottom:1px solid var(--line-strong)}
+  .dot{width:11px;height:11px;border-radius:50%}
+  .d1{background:#f0625c}.d2{background:#f6c049}.d3{background:#4cc06a}
+  .addr{flex:1;margin-left:10px;background:#fff;border-radius:7px;padding:5px 12px;font-size:12px;color:var(--muted);font-family:var(--body)}
+  .samplebadge{margin-left:10px;background:var(--navy);color:var(--gold);font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:5px;white-space:nowrap}
+  .addr b{color:var(--navy)}
+  .pv{font-family:var(--body);max-height:480px;overflow-y:auto}
+  .pv::-webkit-scrollbar{width:11px}
+  .pv::-webkit-scrollbar-track{background:#f1ede2}
+  .pv::-webkit-scrollbar-thumb{background:#ccc6b6;border-radius:8px;border:2px solid #f1ede2}
+  .pv .topstrip{background:var(--blue);color:rgba(255,255,255,.92);font-size:10px;padding:5px 18px;display:flex;justify-content:space-between}
+  .pv .nav{background:var(--gold);display:flex;align-items:center;justify-content:space-between;padding:10px 18px}
+  .pv .brand{display:flex;align-items:center;gap:8px;color:var(--navy);font-weight:800;font-size:15px;letter-spacing:.02em}
+  .pv .navlinks{display:flex;gap:16px;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--navy);letter-spacing:.04em}
+  .pv .navlinks span:last-child{background:var(--navy);color:#fff;padding:4px 10px;border-radius:6px}
+  .pv .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;padding:26px 22px;align-items:center}
+  .pv .badge2{display:inline-flex;align-items:center;gap:6px;background:rgba(0,87,183,.09);color:var(--blue);font-size:10px;font-weight:700;padding:4px 10px;border-radius:999px}
+  .pv .badge2 i{width:5px;height:5px;border-radius:50%;background:var(--gold);display:inline-block}
+  .pv h1{font-family:var(--display);color:var(--navy);font-size:30px;line-height:1.04;font-weight:600;margin-top:10px}
+  .pv .lede{color:#5a6472;font-size:12px;margin-top:10px;line-height:1.5}
+  .pv .btns{display:flex;gap:9px;margin-top:14px}
+  .pv .b-blue{background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:9px 16px;border-radius:8px}
+  .pv .b-ghost{border:1px solid #cfd6df;color:#475063;font-size:11px;font-weight:700;padding:9px 16px;border-radius:8px}
+  .pv .trust{margin-top:14px;font-size:10px;color:#8a93a0}
+  .pv .ratecard{border:1px solid #e7e9ee;border-radius:12px;overflow:hidden;box-shadow:0 10px 24px rgba(60,70,90,.12)}
+  .pv .rc-head{background:var(--navy);color:#fff;padding:16px 18px}
+  .pv .rc-head .lbl{font-size:10px;color:#9fc0e6}
+  .pv .rc-head .big{font-family:var(--display);font-size:32px;font-weight:700;line-height:1}
+  .pv .rc-head .big small{font-size:13px}
+  .pv .rc-head .sub{font-size:10px;color:#bcd2ee;margin-top:3px}
+  .pv .rc-row{display:flex;justify-content:space-between;padding:9px 18px;border-top:1px solid #f0f0f2;font-size:11px}
+  .pv .rc-row b{color:#26303f;font-weight:600}.pv .rc-row span{color:#8a93a0}
+  .pv .rc-btn{background:var(--gold);color:var(--navy);text-align:center;font-size:11px;font-weight:700;padding:10px;margin:0}
+  .pv .stats{background:var(--navy);display:grid;grid-template-columns:repeat(4,1fr);padding:16px 10px}
+  .pv .stat{text-align:center;color:#fff}
+  .pv .stat .v{font-family:var(--display);font-size:22px;font-weight:700}
+  .pv .stat .l{font-size:9px;color:#9fc0e6;margin-top:2px}
+  .pv .prods{padding:20px 22px 24px}
+  .pv .prods .ph{text-align:center;font-family:var(--display);color:var(--navy);font-size:16px;font-weight:600}
+  .pv .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+  .pv .pcard{border:1px solid #e7e9ee;border-radius:10px;padding:12px}
+  .pv .pcard .ic{width:26px;height:26px;border-radius:7px;background:rgba(0,87,183,.1);color:var(--blue);display:flex;align-items:center;justify-content:center}
+  .pv .pcard h4{color:var(--navy);font-size:12px;font-weight:700;margin-top:9px}
+  .pv .pcard p{color:#7b8492;font-size:10px;margin-top:4px;line-height:1.4}
+  .pvcap{text-align:center;font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
+  .pv .vysh{display:flex;justify-content:center;gap:7px;padding:9px 0;background:#fff}
+  .pv .vysh i{width:8px;height:8px;transform:rotate(45deg);display:inline-block}
+  .pv .why{background:#f4f1e8;padding:22px}
+  .pv .why h3{font-family:var(--display);color:var(--navy);font-size:18px;font-weight:600}
+  .pv .why .wsub{color:#5a6472;font-size:11px;margin-top:6px;line-height:1.5;max-width:90%}
+  .pv .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
+  .pv .bcard{background:#fff;border:1px solid #e7e9ee;border-radius:9px;padding:11px}
+  .pv .bcard .tick{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+  .pv .bcard h5{color:var(--navy);font-size:11.5px;font-weight:700;margin-top:7px}
+  .pv .bcard p{color:#7b8492;font-size:9.5px;margin-top:3px;line-height:1.4}
+  .pv .comm{padding:20px 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+  .pv .ccard{background:var(--navy);border-radius:10px;padding:13px}
+  .pv .ccard h5{color:var(--gold);font-size:11.5px;font-weight:700}
+  .pv .ccard p{color:#bcd2ee;font-size:9.5px;margin-top:5px;line-height:1.4}
+  .pv .contact{background:#f4f1e8;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  .pv .contact h3{font-family:var(--display);color:var(--navy);font-size:18px;font-weight:600}
+  .pv .contact .csub{color:#5a6472;font-size:11px;margin-top:6px;line-height:1.5}
+  .pv .contact .cinfo{margin-top:12px;font-size:11px}
+  .pv .contact .cinfo div{display:flex;gap:8px;margin-top:5px}
+  .pv .contact .cinfo b{color:var(--navy);min-width:32px}
+  .pv .contact .cinfo span{color:#5a6472}
+  .pv .cform{background:#fff;border:1px solid #e7e9ee;border-radius:11px;padding:14px;box-shadow:0 8px 20px rgba(60,70,90,.08)}
+  .pv .cform .ff{background:#fff;border:1px solid #d9dee6;border-radius:7px;padding:8px 10px;font-size:10px;color:#9aa1ac;margin-top:8px}
+  .pv .cform .frow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .pv .cform .frow .ff{margin-top:8px}
+  .pv .cform .submit{background:var(--blue);color:#fff;text-align:center;font-size:11px;font-weight:700;padding:10px;border-radius:8px;margin-top:11px}
+  .pv .cta2{margin:0 22px 22px;display:grid;grid-template-columns:1.4fr 1fr;border-radius:16px;overflow:hidden;box-shadow:0 10px 24px rgba(0,87,183,.18)}
+  .pv .cta2 .left{background:var(--blue);color:#fff;padding:20px}
+  .pv .cta2 .left h3{font-family:var(--display);font-size:22px;font-weight:600;color:#fff}
+  .pv .cta2 .left p{font-size:10.5px;color:#dbe6f7;margin-top:8px;line-height:1.5}
+  .pv .cta2 .left .callbtn{display:inline-block;background:var(--gold);color:var(--navy);font-size:11px;font-weight:700;padding:9px 16px;border-radius:999px;margin-top:12px}
+  .pv .cta2 .right{background:var(--gold);color:var(--navy);padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px}
+  .pv .cta2 .right b{font-size:11px}
+  .pv .cta2 .right span{font-size:9.5px;opacity:.8}
+  .pv .pfoot{background:var(--navy);color:#fff;text-align:center;padding:22px}
+  .pv .pfoot .fl{font-size:12px;font-weight:700;margin-top:8px}
+  .pv .pfoot .fm{font-size:9.5px;color:#9fc0e6;margin-top:6px;max-width:70%;margin-left:auto;margin-right:auto;line-height:1.5}
+  .pv .pfoot .fc{font-size:8.5px;color:#6f93bd;margin-top:8px}
+
+  .grid2{display:grid;grid-template-columns:1.25fr 1fr;gap:26px;margin-top:26px;align-items:start}
+  .built ul{list-style:none;margin-top:6px}
+  .built li{position:relative;padding-left:30px;margin-top:13px;font-size:15.5px}
+  .built li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:rgba(0,87,183,.1)}
+  .built li::after{content:"";position:absolute;left:6px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  .worthcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:var(--shadow)}
+  .worthcard .ttl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .worthrow{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line)}
+  .worthrow:last-child{border-bottom:0}
+  .worthrow span{font-size:14.5px;color:var(--ink)}
+  .worthrow b{font-family:var(--display);font-size:17px;color:var(--navy);font-weight:600;white-space:nowrap}
+  .worthnote{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.5}
+  .highlightprice{background:rgba(0,87,183,.06);border:1px solid rgba(0,87,183,.18);border-radius:10px;padding:14px 16px;margin-top:16px}
+  .highlightprice .big{font-family:var(--display);font-size:24px;color:var(--blue);font-weight:700}
+  .highlightprice .cap{font-size:12.5px;color:var(--muted)}
+
+  .tech{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+  .techcard{border-radius:14px;padding:24px;box-shadow:var(--shadow)}
+  .techcard.old{background:#f4f1e8;border:1px solid var(--line)}
+  .techcard.new{background:var(--navy);color:#eaf1fa}
+  .techcard .tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+  .techcard.old .tag{color:var(--muted)}.techcard.new .tag{color:var(--gold)}
+  .techcard .stackname{font-family:var(--display);font-size:21px;font-weight:600;line-height:1.15}
+  .techcard.old .stackname{color:var(--navy)}.techcard.new .stackname{color:#fff}
+  .techcard .since{font-size:13px;margin-top:4px}
+  .techcard.old .since{color:var(--muted)}.techcard.new .since{color:#9fc0e6}
+  .techcard ul{list-style:none;margin-top:16px}
+  .techcard li{position:relative;padding-left:24px;margin-top:11px;font-size:14px;line-height:1.45}
+  .techcard.old li::before{content:"–";position:absolute;left:2px;top:0;color:#b08a8a;font-weight:700}
+  .techcard.new li::before{content:"✓";position:absolute;left:0;top:0;color:var(--gold);font-weight:700}
+  .techcard .means{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);font-size:13px}
+  .techcard.old .means{border-top-color:var(--line);color:var(--muted)}.techcard.new .means{color:#c7d6ea}
+
+  .cmp{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
+  table{width:100%;border-collapse:collapse}
+  .cmp th,.cmp td{padding:15px 18px;text-align:left;font-size:15px;vertical-align:top}
+  .cmp thead th{background:var(--navy);color:#fff;font-weight:600;font-size:13px;letter-spacing:.04em}
+  .cmp tbody tr:nth-child(even){background:#faf8f2}
+  .cmp tbody td{border-top:1px solid var(--line)}
+  .cmp .feat{font-weight:600;color:var(--navy);width:24%}
+  .cmp .old{color:var(--muted);width:38%}
+  .cmp .new{color:var(--ink);width:38%}
+  .cmp .new b{color:var(--navy)}
+  .x{color:#b08a8a;font-weight:700;margin-right:6px}.chk{color:var(--good);font-weight:700;margin-right:6px}
+
+  .seo{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+  .seo .intro{padding:24px 26px 8px;font-size:15.5px;color:var(--ink)}
+  .seo .intro b{color:var(--navy)}
+  .seosteps{display:grid;grid-template-columns:repeat(3,1fr);padding:18px 26px 28px}
+  .seostep{padding:18px;border-radius:12px;border:1px solid var(--line);margin:0 6px}
+  .seostep:first-child{margin-left:0}.seostep:last-child{margin-right:0}
+  .seostep.s1{background:#faf8f2}
+  .seostep.s2{background:rgba(0,87,183,.06);border-color:rgba(0,87,183,.2)}
+  .seostep.s3{background:var(--navy);color:#eaf1fa;border-color:var(--navy)}
+  .seostep .lvl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--blue)}
+  .seostep.s3 .lvl{color:var(--gold)}
+  .seostep h4{font-family:var(--display);font-size:16px;margin-top:6px;color:var(--navy);font-weight:600}
+  .seostep.s3 h4{color:#fff}
+  .seostep p{font-size:13px;margin-top:8px;color:var(--muted)}.seostep.s3 p{color:#c7d6ea}
+
+  /* hosting */
+  .host{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
+  .host .htable th,.host .htable td{padding:13px 18px;font-size:14.5px;text-align:left;border-top:1px solid var(--line)}
+  .host .htable thead th{background:var(--navy);color:#fff;border-top:0;font-size:13px;font-weight:600}
+  .host .htable td b{color:var(--navy)}
+  .host .htable .rec td{background:rgba(0,87,183,.05)}
+  .host .htable .plan{font-weight:700;color:var(--navy)}
+  .recbadge{display:inline-block;background:var(--blue);color:#fff;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:5px;margin-left:6px}
+  .hostnote{padding:18px 20px;background:#faf8f2;border-top:1px solid var(--line);font-size:14px;color:var(--ink);display:flex;gap:14px;align-items:flex-start}
+  .hostnote .ic{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}
+  .hostnote b{color:var(--navy)}
+
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;align-items:stretch}
+  .tier{background:var(--card);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;box-shadow:var(--shadow)}
+  .tier.feature{border-color:var(--blue);box-shadow:0 14px 40px rgba(0,87,183,.16);transform:translateY(-6px)}
+  .tier .cap{height:6px;background:var(--line)}
+  .tier.feature .cap{background:linear-gradient(90deg,var(--blue),var(--gold))}
+  .tier .top{padding:22px 22px 18px;border-bottom:1px solid var(--line)}
+  .badge{display:inline-block;background:var(--blue);color:#fff;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:12px}
+  .tier h3{font-family:var(--display);color:var(--navy);font-size:21px;font-weight:600}
+  .tier .for{font-size:13px;color:var(--muted);margin-top:5px;min-height:34px}
+  .price{font-family:var(--display);font-size:34px;color:var(--navy);font-weight:700;margin-top:14px;line-height:1}
+  .price small{font-size:14px;font-family:var(--body);color:var(--muted);font-weight:500}
+  .pricenote{font-size:12px;color:var(--muted);margin-top:6px}
+  .ready{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-size:12.5px;font-weight:600;color:var(--navy);background:rgba(255,212,0,.18);border:1px solid rgba(214,182,0,.4);border-radius:999px;padding:5px 12px}
+  .tier ul{list-style:none;padding:20px 22px 24px;flex:1}
+  .tier li{position:relative;padding-left:24px;margin-bottom:11px;font-size:13.7px;line-height:1.45}
+  .tier li .chk{position:absolute;left:0;top:0}
+  .tier li.muted{color:var(--muted)}.tier li.muted .x{position:absolute;left:0;top:0}
+
+  .custom{margin-top:20px;display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;background:linear-gradient(100deg,#f4f1e8,#fbfaf6);border:1px dashed var(--line-strong);border-radius:14px;padding:22px 26px}
+  .custom .cic{width:46px;height:46px;border-radius:12px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:22px}
+  .custom h3{font-family:var(--display);color:var(--navy);font-size:19px;font-weight:600}
+  .custom p{font-size:14px;color:var(--muted);margin-top:4px}
+  .custom .cta{background:var(--blue);color:#fff;font-size:13px;font-weight:700;padding:11px 20px;border-radius:9px;white-space:nowrap}
+
+  .matrix{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
+  .matrix th,.matrix td{padding:12px 16px;font-size:14px;text-align:center}
+  .matrix thead th{background:var(--navy);color:#fff;font-weight:600;font-size:13px}
+  .matrix thead th.rec{background:var(--blue)}
+  .matrix tbody td{border-top:1px solid var(--line)}
+  .matrix .rowlabel{text-align:left;font-weight:600;color:var(--navy);width:40%}
+  .matrix tbody tr:nth-child(even){background:#faf8f2}
+  .matrix .reccol{background:rgba(0,87,183,.05)}
+  .matrix .grouphdr td{background:#f1ede2;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted);text-align:left;padding:9px 16px}
+  .matrix .priceR td{font-family:var(--display);color:var(--navy);font-weight:700;font-size:16px;border-top:2px solid var(--line-strong)}
+  .yes{color:var(--good);font-weight:800;font-size:16px}
+  .no{color:#c9c2b3;font-weight:700}
+  .part{color:var(--ink);font-size:12.5px;line-height:1.35;font-weight:500}
+
+  .steps{counter-reset:s;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;position:relative;box-shadow:var(--shadow)}
+  .step::before{counter-increment:s;content:counter(s);font-family:var(--display);font-weight:700;color:var(--gold);font-size:30px;line-height:1;float:right;margin-top:-4px}
+  .step h4{color:var(--navy);font-size:15.5px;font-weight:700}
+  .step p{font-size:14px;color:var(--muted);margin-top:6px}
+  .terms{margin-top:22px;background:#faf8f2;border:1px solid var(--line);border-radius:12px;padding:20px 24px;font-size:14px;color:var(--ink)}
+  .terms .ln{padding:7px 0;border-bottom:1px dashed var(--line);display:flex;gap:14px}
+  .terms .ln:last-child{border-bottom:0}
+  .terms .ln .k{min-width:150px;font-weight:600;color:var(--navy)}
+  .sign{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .sigbox{border-top:2px solid var(--line-strong);padding-top:10px;font-size:13px;color:var(--muted)}
+  .footer{margin-top:54px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted)}
+  .footer b{color:var(--navy)}
+
+  .reveal{opacity:0;transform:translateY(12px);animation:rise .6s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media (max-width:720px){
+    .grid2,.tiers,.steps,.sign,.tech,.seosteps{grid-template-columns:1fr}
+    .tier.feature{transform:none}
+    .cmp .feat,.cmp .old,.cmp .new{width:auto}
+    .matrix{overflow-x:auto;display:block}
+    .seostep{margin:6px 0}
+    .pv .hero{grid-template-columns:1fr}
+    .custom{grid-template-columns:1fr;text-align:center}
+  }
+  @media print{
+    body{background:#fff}
+    .reveal{animation:none;opacity:1;transform:none}
+    .tier.feature{transform:none;box-shadow:none}
+    section{page-break-inside:avoid}
+    .cmp,.matrix,.tier,.summary,.step,.techcard,.seo,.host,.browser{box-shadow:none}
+    .pv{max-height:none;overflow:visible}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="flag"></div>
+<div class="sheet">
+
+  <!-- MASTHEAD -->
+  <header class="masthead reveal">
+    <div class="kicker">Website Modernization · Proposal &amp; Quote</div>
+    <h1>A modern home<br>for Providence, online.</h1>
+    <p class="sub">A complete rebuild of provassn.com on today&rsquo;s technology — faster, more secure, easier to find, and built for the Ukrainian Catholic community you serve.</p>
+    <div class="meta">
+      <div><div class="lbl">Prepared for</div><div class="val">Providence Association<br>of Ukrainian Catholics in America</div></div>
+      <div><div class="lbl">Prepared by</div><div class="val">[Your Name / Studio]</div></div>
+      <div><div class="lbl">Date</div><div class="val">June 2026</div></div>
+      <div><div class="lbl">Quote valid</div><div class="val">30 days</div></div>
+    </div>
+  </header>
+
+  <!-- THE SHORT VERSION -->
+  <section class="reveal" style="animation-delay:.05s">
+    <div class="eyebrow">The short version</div>
+    <h2>Your new website is already built.</h2>
+    <p class="lead">Rather than start from a blank page, I&rsquo;ve already rebuilt your entire site on modern technology — every page, plus tools and search visibility your current site doesn&rsquo;t have. The packages below cover finishing the details you prefer, launching it, and supporting it afterward.</p>
+    <div class="summary">
+      <div class="flag"></div>
+      <div class="body">
+        <h3>My recommendation: the Complete package — $5,000</h3>
+        <p>It delivers the full website in English <em>and</em> Ukrainian, all the interactive calculators, advanced visibility on Google <em>and</em> AI assistants, spam-protected lead forms, your existing news moved over, and support — still well below what an agency would charge.</p>
+        <div class="row">
+          <span class="pill">Launch — <b>$3,500</b></span>
+          <span class="pill">Complete — <b>$5,000</b> · recommended</span>
+          <span class="pill">Complete&nbsp;+&nbsp;Care — <b>$8,000</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW -->
+  <section class="reveal" style="animation-delay:.08s">
+    <div class="eyebrow">A look at your new homepage</div>
+    <h2>See it, don&rsquo;t just read about it.</h2>
+    <p>This is a <b>sample preview</b> of your new homepage — scroll inside the window below to explore the full page. The live site is fully interactive and looks just as sharp on a phone.</p>
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><div class="addr">🔒 <b>provassn.com</b></div><span class="samplebadge">Sample preview</span></div>
+      <div class="pv">
+        <div class="topstrip"><span>Українською · In English</span><span>Serving Pennsylvania · New Jersey · Michigan</span></div>
+        <div class="nav">
+          <div class="brand">
+            <svg viewBox="0 0 120 120" width="24" height="24" style="border-radius:6px"><rect width="120" height="120" rx="26" fill="#0b2a4a"/><svg x="36" y="18" width="48" height="84" viewBox="96.6 138.6 399 574.5" fill="#ffd400" preserveAspectRatio="xMidYMid meet"><path d="m229.32 545c0 0.564 0.019 1.124 0.027 1.686h26.348c-0.021-0.702-0.037-1.407-0.045-2.111-0.01-0.58-0.018-1.16-0.019-1.739-0.02-8.752 1.993-17.254 2.233-20.567 6.917-50.522 39.9-72.145 40.603-72.6 2.275 1.966 34.573 28.195 40.717 73.271 0.232 3.308 2.09 11.883 2.199 20.641 0.016 0.581 0.023 1.163 0.021 1.746-2e-3 0.453-8e-3 0.906-0.016 1.359h26.287c0.01-0.562 0.027-1.121 0.027-1.686 0-44.438-18.871-75.975-36.902-95.973h0.514c-15.414-32.495-18.191-68.848-16.604-104.93 1.518-34.486 2.652-78.986 3.951-113.48 0.709-18.846-3.809-36.292-16.58-51.511-0.774-0.922-3.188-3.236-3.849-3.659 0 0-3.071 2.771-3.843 3.69-12.771 15.22-17.288 32.665-16.579 51.51 1.298 34.493 2.433 78.993 3.951 113.48 1.579 35.907-0.087 72.666-15.955 104.69-17.903 19.767-36.486 51.129-36.486 96.181z"/><path d="m447.33 224.63c-0.759 0.11-1.285 0.074-1.705 0.269-1.205 0.558-2.409 1.141-3.54 1.833-15.479 9.479-28.864 21.331-40.152 35.547-22.653 28.53-33.69 61.319-36.552 97.377-1.523 19.211-4.318 38.32-6.472 57.482-1.089 9.687-2.024 19.39-3.038 29.166 9.51-1.566 16.893 1.918 23.221 7.676 8.662 7.883 10.098 20.648 2.687 29.734-3.39 4.156-8.524 7.114-13.327 9.906-0.18 0.104-0.356 0.203-0.53 0.297 2.668 7.489 4.84 15.567 6.324 24.246 0.563-0.206 1.167-0.426 1.513-0.547 20.106-7.053 32.49-20.742 35.523-42.1 2.582-18.186-7.431-37.465-24.464-47.231-2.907-1.667-3.829-3.229-3.417-6.576 2.615-21.288 5.39-42.569 7.321-63.925 1.789-19.779 7.316-38.067 15.954-56.049 4.029-8.389 15.475-25.107 15.475-25.107s0 187.09 0 280.14h-101.05v22.549h16.932c-5.077 24.299-17.379 40.557-26.932 49.984v-76.666c1.428-5.992 5.944-14.009 19.416-18.04 0.679-0.203 1.356-0.438 2.035-0.674-0.439-3.59-0.921-6.534-1.022-8.118-0.653-5.273-1.614-10.194-2.787-14.796-2.343 0.743-4.286 1.382-5.673 1.884-8.488 3.068-21.69 14.162-24.518 16.448-2.827-2.286-16.029-13.38-24.517-16.448-1.387-0.502-3.331-1.141-5.673-1.884-1.172 4.602-2.134 9.522-2.787 14.796-0.102 1.584-0.583 4.528-1.022 8.118 0.678 0.236 1.356 0.471 2.035 0.674 13.219 3.956 17.815 11.75 19.333 17.702v76.713c-9.503-9.574-21.74-25.889-26.873-49.694h17.039v-22.549h-101.22v-280.14s11.445 16.719 15.475 25.107c8.638 17.981 14.165 36.27 15.954 56.049 1.932 21.355 4.706 42.637 7.321 63.925 0.412 3.348-0.51 4.909-3.417 6.576-17.033 9.767-27.046 29.046-24.464 47.231 3.033 21.357 15.417 35.047 35.523 42.1 0.33 0.116 0.895 0.321 1.437 0.52 1.444-8.736 3.564-16.845 6.176-24.344-0.102-0.057-0.202-0.112-0.306-0.172-4.803-2.792-9.938-5.75-13.327-9.906-7.411-9.086-5.976-21.852 2.687-29.734 6.328-5.758 13.711-9.242 23.221-7.676-1.014-9.776-1.949-19.479-3.038-29.166-2.153-19.162-4.948-38.271-6.472-57.482-2.861-36.058-13.898-68.847-36.552-97.377-11.288-14.216-24.673-26.067-40.152-35.547-1.131-0.692-2.335-1.275-3.54-1.833-0.42-0.194-0.946-0.158-1.705-0.269v354.69h82.278c12.65 59.656 66.543 86.531 66.543 86.531s54.168-25.693 66.641-86.531h82.183v-354.69z"/></svg></svg>
+            PROVIDENCE
+          </div>
+          <div class="navlinks"><span>Products</span><span>Why Us</span><span>Community</span><span>Become a Member</span></div>
+        </div>
+        <div class="hero">
+          <div>
+            <span class="badge2"><i></i>113 years of member-owned security</span>
+            <h1>Financial security,<br>rooted in faith.</h1>
+            <p class="lede">Life insurance, retirement savings, and final-expense planning for the Ukrainian Catholic community — from a non-profit society that returns its surplus to churches, scholarships, and Ukraine.</p>
+            <div class="btns"><span class="b-blue">Explore Products</span><span class="b-ghost">Talk to a Representative</span></div>
+            <div class="trust">★★★★★ Trusted since 1912 · Licensed in PA, NJ, MI</div>
+          </div>
+          <div class="ratecard">
+            <div class="rc-head"><div class="lbl">Current annuity rate</div><div class="big">4.0<small>% APR</small></div><div class="sub">Tax-deferred · Guaranteed principal</div></div>
+            <div class="rc-row"><b>Whole Life Insurance</b><span>Builds cash value</span></div>
+            <div class="rc-row"><b>IRA &amp; Roth IRA</b><span>Tax-advantaged</span></div>
+            <div class="rc-row"><b>College Tuition Fund</b><span>Scholarship eligible</span></div>
+            <div class="rc-row"><b>Final Expense Plan</b><span>Family protected</span></div>
+            <div class="rc-btn">Get a free consultation</div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="v">113</div><div class="l">Years of service</div></div>
+          <div class="stat"><div class="v">1912</div><div class="l">Founded</div></div>
+          <div class="stat"><div class="v">210+</div><div class="l">Branches</div></div>
+          <div class="stat"><div class="v">3</div><div class="l">States licensed</div></div>
+        </div>
+        <div class="prods">
+          <div class="ph">Coverage for every stage of life</div>
+          <div class="pgrid">
+            <div class="pcard"><div class="ic"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></div><h4>Whole Life</h4><p>Permanent protection that builds cash value.</p></div>
+            <div class="pcard"><div class="ic"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M7 16l3-4 3 2 4-7"/></svg></div><h4>Annuities · 4.0%</h4><p>Tax-deferred, guaranteed-rate growth.</p></div>
+            <div class="pcard"><div class="ic"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l9 4-9 4-9-4 9-4zM5 11v4c0 1.5 3 3 7 3s7-1.5 7-3v-4"/></svg></div><h4>College Fund</h4><p>Tax-smart saving for tuition.</p></div>
+          </div>
+        </div>
+        <div class="vysh"><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i></div>
+        <div class="why">
+          <h3>The fraternal advantage</h3>
+          <p class="wsub">We are owned by our members, not shareholders. That single fact shapes everything we do.</p>
+          <div class="bgrid">
+            <div class="bcard"><div class="tick" style="background:var(--blue);color:#fff">✓</div><h5>Annual Scholarships</h5><p>Awarded every year to members and their families.</p></div>
+            <div class="bcard"><div class="tick" style="background:var(--gold);color:var(--navy)">✓</div><h5>Member Loans</h5><p>Preferential lending — the loans that built our churches.</p></div>
+            <div class="bcard"><div class="tick" style="background:var(--blue);color:#fff">✓</div><h5>Bilingual Service</h5><p>Personal support in Ukrainian and English.</p></div>
+            <div class="bcard"><div class="tick" style="background:var(--gold);color:var(--navy)">✓</div><h5>Surplus to Community</h5><p>Our surplus flows back to parishes and Ukraine.</p></div>
+          </div>
+        </div>
+        <div class="comm">
+          <div class="ccard"><h5>Churches Built</h5><p>Low-interest loans have sustained parishes for over a century.</p></div>
+          <div class="ccard"><h5>Youth &amp; Seminaries</h5><p>Support for youth organizations and Catholic schools.</p></div>
+          <div class="ccard"><h5>Relief for Ukraine</h5><p>Medical supplies and direct aid in its time of need.</p></div>
+        </div>
+        <div class="vysh"><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i></div>
+        <div class="contact">
+          <div>
+            <h3>Request a free consultation</h3>
+            <p class="csub">Tell us a little about your family and a bilingual representative will reach out — no pressure, no call centers.</p>
+            <div class="cinfo">
+              <div><b>Call</b><span>(215) 627-2445</span></div>
+              <div><b>Email</b><span>info@provassn.com</span></div>
+              <div><b>Visit</b><span>817 North Franklin Street, Philadelphia, PA</span></div>
+            </div>
+          </div>
+          <div class="cform">
+            <div class="frow"><div class="ff">First name</div><div class="ff">Last name</div></div>
+            <div class="ff">Email</div>
+            <div class="ff">I&rsquo;m interested in…</div>
+            <div class="submit">Request consultation</div>
+          </div>
+        </div>
+        <div class="cta2">
+          <div class="left">
+            <h3>Join the family</h3>
+            <p>Speak with a bilingual representative and become part of a society that has protected Ukrainian Catholic families since 1912.</p>
+            <span class="callbtn">Call (215) 627-2445</span>
+          </div>
+          <div class="right">
+            <svg viewBox="96.6 138.6 399 574.5" width="28" height="40" fill="#0b2a4a" preserveAspectRatio="xMidYMid meet"><path d="m229.32 545c0 0.564 0.019 1.124 0.027 1.686h26.348c-0.021-0.702-0.037-1.407-0.045-2.111-0.01-0.58-0.018-1.16-0.019-1.739-0.02-8.752 1.993-17.254 2.233-20.567 6.917-50.522 39.9-72.145 40.603-72.6 2.275 1.966 34.573 28.195 40.717 73.271 0.232 3.308 2.09 11.883 2.199 20.641 0.016 0.581 0.023 1.163 0.021 1.746-2e-3 0.453-8e-3 0.906-0.016 1.359h26.287c0.01-0.562 0.027-1.121 0.027-1.686 0-44.438-18.871-75.975-36.902-95.973h0.514c-15.414-32.495-18.191-68.848-16.604-104.93 1.518-34.486 2.652-78.986 3.951-113.48 0.709-18.846-3.809-36.292-16.58-51.511-0.774-0.922-3.188-3.236-3.849-3.659 0 0-3.071 2.771-3.843 3.69-12.771 15.22-17.288 32.665-16.579 51.51 1.298 34.493 2.433 78.993 3.951 113.48 1.579 35.907-0.087 72.666-15.955 104.69-17.903 19.767-36.486 51.129-36.486 96.181z"/><path d="m447.33 224.63c-0.759 0.11-1.285 0.074-1.705 0.269-1.205 0.558-2.409 1.141-3.54 1.833-15.479 9.479-28.864 21.331-40.152 35.547-22.653 28.53-33.69 61.319-36.552 97.377-1.523 19.211-4.318 38.32-6.472 57.482-1.089 9.687-2.024 19.39-3.038 29.166 9.51-1.566 16.893 1.918 23.221 7.676 8.662 7.883 10.098 20.648 2.687 29.734-3.39 4.156-8.524 7.114-13.327 9.906-0.18 0.104-0.356 0.203-0.53 0.297 2.668 7.489 4.84 15.567 6.324 24.246 0.563-0.206 1.167-0.426 1.513-0.547 20.106-7.053 32.49-20.742 35.523-42.1 2.582-18.186-7.431-37.465-24.464-47.231-2.907-1.667-3.829-3.229-3.417-6.576 2.615-21.288 5.39-42.569 7.321-63.925 1.789-19.779 7.316-38.067 15.954-56.049 4.029-8.389 15.475-25.107 15.475-25.107s0 187.09 0 280.14h-101.05v22.549h16.932c-5.077 24.299-17.379 40.557-26.932 49.984v-76.666c1.428-5.992 5.944-14.009 19.416-18.04 0.679-0.203 1.356-0.438 2.035-0.674-0.439-3.59-0.921-6.534-1.022-8.118-0.653-5.273-1.614-10.194-2.787-14.796-2.343 0.743-4.286 1.382-5.673 1.884-8.488 3.068-21.69 14.162-24.518 16.448-2.827-2.286-16.029-13.38-24.517-16.448-1.387-0.502-3.331-1.141-5.673-1.884-1.172 4.602-2.134 9.522-2.787 14.796-0.102 1.584-0.583 4.528-1.022 8.118 0.678 0.236 1.356 0.471 2.035 0.674 13.219 3.956 17.815 11.75 19.333 17.702v76.713c-9.503-9.574-21.74-25.889-26.873-49.694h17.039v-22.549h-101.22v-280.14s11.445 16.719 15.475 25.107c8.638 17.981 14.165 36.27 15.954 56.049 1.932 21.355 4.706 42.637 7.321 63.925 0.412 3.348-0.51 4.909-3.417 6.576-17.033 9.767-27.046 29.046-24.464 47.231 3.033 21.357 15.417 35.047 35.523 42.1 0.33 0.116 0.895 0.321 1.437 0.52 1.444-8.736 3.564-16.845 6.176-24.344-0.102-0.057-0.202-0.112-0.306-0.172-4.803-2.792-9.938-5.75-13.327-9.906-7.411-9.086-5.976-21.852 2.687-29.734 6.328-5.758 13.711-9.242 23.221-7.676-1.014-9.776-1.949-19.479-3.038-29.166-2.153-19.162-4.948-38.271-6.472-57.482-2.861-36.058-13.898-68.847-36.552-97.377-11.288-14.216-24.673-26.067-40.152-35.547-1.131-0.692-2.335-1.275-3.54-1.833-0.42-0.194-0.946-0.158-1.705-0.269v354.69h82.278c12.65 59.656 66.543 86.531 66.543 86.531s54.168-25.693 66.641-86.531h82.183v-354.69z"/></svg>
+            <b>info@provassn.com</b>
+            <span>817 North Franklin Street, Philadelphia, PA</span>
+          </div>
+        </div>
+        <div style="height:4px;background:linear-gradient(90deg,#0057b7 0 52%,#ffd400 52% 100%)"></div>
+        <div class="pfoot">
+          <svg viewBox="96.6 138.6 399 574.5" width="24" height="34" fill="#ffd400" preserveAspectRatio="xMidYMid meet"><path d="m229.32 545c0 0.564 0.019 1.124 0.027 1.686h26.348c-0.021-0.702-0.037-1.407-0.045-2.111-0.01-0.58-0.018-1.16-0.019-1.739-0.02-8.752 1.993-17.254 2.233-20.567 6.917-50.522 39.9-72.145 40.603-72.6 2.275 1.966 34.573 28.195 40.717 73.271 0.232 3.308 2.09 11.883 2.199 20.641 0.016 0.581 0.023 1.163 0.021 1.746-2e-3 0.453-8e-3 0.906-0.016 1.359h26.287c0.01-0.562 0.027-1.121 0.027-1.686 0-44.438-18.871-75.975-36.902-95.973h0.514c-15.414-32.495-18.191-68.848-16.604-104.93 1.518-34.486 2.652-78.986 3.951-113.48 0.709-18.846-3.809-36.292-16.58-51.511-0.774-0.922-3.188-3.236-3.849-3.659 0 0-3.071 2.771-3.843 3.69-12.771 15.22-17.288 32.665-16.579 51.51 1.298 34.493 2.433 78.993 3.951 113.48 1.579 35.907-0.087 72.666-15.955 104.69-17.903 19.767-36.486 51.129-36.486 96.181z"/><path d="m447.33 224.63c-0.759 0.11-1.285 0.074-1.705 0.269-1.205 0.558-2.409 1.141-3.54 1.833-15.479 9.479-28.864 21.331-40.152 35.547-22.653 28.53-33.69 61.319-36.552 97.377-1.523 19.211-4.318 38.32-6.472 57.482-1.089 9.687-2.024 19.39-3.038 29.166 9.51-1.566 16.893 1.918 23.221 7.676 8.662 7.883 10.098 20.648 2.687 29.734-3.39 4.156-8.524 7.114-13.327 9.906-0.18 0.104-0.356 0.203-0.53 0.297 2.668 7.489 4.84 15.567 6.324 24.246 0.563-0.206 1.167-0.426 1.513-0.547 20.106-7.053 32.49-20.742 35.523-42.1 2.582-18.186-7.431-37.465-24.464-47.231-2.907-1.667-3.829-3.229-3.417-6.576 2.615-21.288 5.39-42.569 7.321-63.925 1.789-19.779 7.316-38.067 15.954-56.049 4.029-8.389 15.475-25.107 15.475-25.107s0 187.09 0 280.14h-101.05v22.549h16.932c-5.077 24.299-17.379 40.557-26.932 49.984v-76.666c1.428-5.992 5.944-14.009 19.416-18.04 0.679-0.203 1.356-0.438 2.035-0.674-0.439-3.59-0.921-6.534-1.022-8.118-0.653-5.273-1.614-10.194-2.787-14.796-2.343 0.743-4.286 1.382-5.673 1.884-8.488 3.068-21.69 14.162-24.518 16.448-2.827-2.286-16.029-13.38-24.517-16.448-1.387-0.502-3.331-1.141-5.673-1.884-1.172 4.602-2.134 9.522-2.787 14.796-0.102 1.584-0.583 4.528-1.022 8.118 0.678 0.236 1.356 0.471 2.035 0.674 13.219 3.956 17.815 11.75 19.333 17.702v76.713c-9.503-9.574-21.74-25.889-26.873-49.694h17.039v-22.549h-101.22v-280.14s11.445 16.719 15.475 25.107c8.638 17.981 14.165 36.27 15.954 56.049 1.932 21.355 4.706 42.637 7.321 63.925 0.412 3.348-0.51 4.909-3.417 6.576-17.033 9.767-27.046 29.046-24.464 47.231 3.033 21.357 15.417 35.047 35.523 42.1 0.33 0.116 0.895 0.321 1.437 0.52 1.444-8.736 3.564-16.845 6.176-24.344-0.102-0.057-0.202-0.112-0.306-0.172-4.803-2.792-9.938-5.75-13.327-9.906-7.411-9.086-5.976-21.852 2.687-29.734 6.328-5.758 13.711-9.242 23.221-7.676-1.014-9.776-1.949-19.479-3.038-29.166-2.153-19.162-4.948-38.271-6.472-57.482-2.861-36.058-13.898-68.847-36.552-97.377-11.288-14.216-24.673-26.067-40.152-35.547-1.131-0.692-2.335-1.275-3.54-1.833-0.42-0.194-0.946-0.158-1.705-0.269v354.69h82.278c12.65 59.656 66.543 86.531 66.543 86.531s54.168-25.693 66.641-86.531h82.183v-354.69z"/></svg>
+          <div class="fl">Providence Association</div>
+          <div class="fm">Member-owned. Faith-rooted. Building financial security for Ukrainian Catholic families since 1912.</div>
+          <div class="fc">© 2026 Providence Association of Ukrainian Catholics in America</div>
+        </div>
+      </div>
+    </div>
+    <p class="pvcap">A sample preview — the finished site is fully interactive and may vary slightly.</p>
+  </section>
+
+  <!-- WHAT'S BUILT / WORTH -->
+  <section class="reveal" style="animation-delay:.1s">
+    <div class="eyebrow">What&rsquo;s already done — and what it&rsquo;s worth</div>
+    <h2>A full custom website, not a template.</h2>
+    <div class="grid2">
+      <div class="built">
+        <p style="color:var(--muted);margin-bottom:6px">Already designed and built:</p>
+        <ul>
+          <li>Every page from your current site, rebuilt with a fresh, professional, mobile-friendly design in your colors.</li>
+          <li>A built-in news &amp; announcements section to keep your community informed.</li>
+          <li>Four interactive calculators (premium, retirement, life-insurance-need, and final-expense estimates).</li>
+          <li>Modern search-engine setup, fast loading, and full https security throughout.</li>
+          <li>Ukrainian identity built in — your tryzub and traditional vyshyvanka detailing.</li>
+        </ul>
+      </div>
+      <div class="worthcard">
+        <div class="ttl">What this normally costs</div>
+        <div class="worthrow"><span>Comparable custom build (agency)</span><b>$15k–$30k</b></div>
+        <div class="worthrow"><span>Basic professional site (NJ avg.)</span><b>$4k–$8k</b></div>
+        <div class="worthrow"><span>This project — your packages from</span><b>$3,500</b></div>
+        <div class="highlightprice">
+          <div class="big">A fraction of agency price</div>
+          <div class="cap">The heavy build is already complete — and the modern platform costs less to run than your current one. Custom-grade quality, without the custom-grade price.</div>
+        </div>
+        <p class="worthnote">Figures reflect 2026 New Jersey and national web-development rates for a site of this size and capability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section class="reveal" style="animation-delay:.12s">
+    <div class="eyebrow">The technology behind it</div>
+    <h2>Built on a stronger foundation.</h2>
+    <p>Your website&rsquo;s &ldquo;engine&rdquo; matters more than it looks. Here&rsquo;s the plain-English difference between what runs your site today and what runs the new one.</p>
+    <div class="tech">
+      <div class="techcard old">
+        <div class="tag">● Your site today</div>
+        <div class="stackname">WordPress + plug-ins</div>
+        <div class="since">Hosted on BlueJet shared hosting.</div>
+        <ul>
+          <li>Relies on many add-on plug-ins that must be updated constantly</li>
+          <li>One of the most frequently hacked platforms on the web</li>
+          <li>Tends to slow down as plug-ins pile up</li>
+          <li>Some plug-ins charge yearly renewal fees</li>
+        </ul>
+        <div class="means"><b>What it means for you:</b> ongoing maintenance, security worry, and recurring costs.</div>
+      </div>
+      <div class="techcard new">
+        <div class="tag">★ Your new site</div>
+        <div class="stackname">React &amp; Next.js, on Vercel</div>
+        <div class="since">The same modern technology behind sites like Netflix and OpenAI.</div>
+        <ul>
+          <li>No fragile plug-ins to update, renew, or get hacked</li>
+          <li>Pages load almost instantly, on any device</li>
+          <li>Far more secure — important for a financial organization</li>
+          <li>Lower running costs and far less to maintain</li>
+        </ul>
+        <div class="means"><b>What it means for you:</b> a fast, safe, low-maintenance site that also ranks better on Google and AI.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OLD VS NEW -->
+  <section class="reveal" style="animation-delay:.14s">
+    <div class="eyebrow">Your site today vs. your new site</div>
+    <h2>What actually changes for you.</h2>
+    <div class="cmp">
+      <table>
+        <thead><tr><th>&nbsp;</th><th>Your current website</th><th>Your new website</th></tr></thead>
+        <tbody>
+          <tr><td class="feat">Look &amp; feel</td><td class="old"><span class="x">–</span>Dated design, last refreshed years ago</td><td class="new"><span class="chk">✓</span><b>Modern, clean, and professional</b>, in your blue-and-gold colors</td></tr>
+          <tr><td class="feat">On phones</td><td class="old"><span class="x">–</span>Awkward and hard to read on a phone</td><td class="new"><span class="chk">✓</span>Looks great on <b>phones, tablets, and computers</b></td></tr>
+          <tr><td class="feat">Technology &amp; upkeep</td><td class="old"><span class="x">–</span>WordPress + plug-ins; constant updates &amp; security risk</td><td class="new"><span class="chk">✓</span><b>Modern, low-maintenance platform</b> with far stronger security</td></tr>
+          <tr><td class="feat">Ukrainian language</td><td class="old"><span class="x">–</span>Mixed into the same pages, hard to follow</td><td class="new"><span class="chk">✓</span><b>One-click switch</b> between English and Українська <em>(Complete &amp; Care)</em></td></tr>
+          <tr><td class="feat">Helpful tools</td><td class="old"><span class="x">–</span>Static pages only</td><td class="new"><span class="chk">✓</span><b>Interactive calculators</b> <em>(Complete &amp; Care)</em></td></tr>
+          <tr><td class="feat">Getting new members</td><td class="old"><span class="x">–</span>No easy way for visitors to reach you</td><td class="new"><span class="chk">✓</span><b>&ldquo;Request a consultation&rdquo; form</b> sent straight to your office</td></tr>
+          <tr><td class="feat">Found on Google</td><td class="old"><span class="x">–</span>Aging search setup</td><td class="new"><span class="chk">✓</span><b>Modern search setup</b> on every package</td></tr>
+          <tr><td class="feat">Found by AI assistants</td><td class="old"><span class="x">–</span>Not built to be read by ChatGPT, Gemini, etc.</td><td class="new"><span class="chk">✓</span><b>Optimized to be cited by AI search</b> <em>(Complete &amp; Care)</em></td></tr>
+          <tr><td class="feat">Writing &amp; spelling</td><td class="old"><span class="x">–</span>Typos in both English and Ukrainian</td><td class="new"><span class="chk">✓</span><b>Professionally proofread</b> in both languages <em>(Complete &amp; Care)</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SEO + AI -->
+  <section class="reveal" style="animation-delay:.15s">
+    <div class="eyebrow">Being found — on Google and by AI</div>
+    <h2>People search differently now.</h2>
+    <p>Families find an organization like yours two ways now: traditional Google search, and increasingly by <b>asking an AI assistant</b> — ChatGPT, Gemini, or Google&rsquo;s own AI answers. Here&rsquo;s how visibility grows with each package.</p>
+    <div class="seo">
+      <div class="intro"><b>Why the platform helps:</b> the modern technology produces clean, fast, well-organized pages — exactly what both Google and AI systems prefer when deciding who to show and quote.</div>
+      <div class="seosteps">
+        <div class="seostep s1">
+          <div class="lvl">Launch — foundations</div>
+          <h4>Solid Google SEO</h4>
+          <p>Fast, mobile-first pages, a search sitemap, and clean code so Google can find and index every page. <em>(Standard search engines — AI optimization is part of the higher packages.)</em></p>
+        </div>
+        <div class="seostep s2">
+          <div class="lvl">Complete — advanced</div>
+          <h4>SEO + AI search</h4>
+          <p>Everything in Launch, plus ranking protection and structured data that helps Google show rich results <em>and</em> helps AI assistants understand and cite you — in English and Ukrainian.</p>
+        </div>
+        <div class="seostep s3">
+          <div class="lvl">+ Care — monitored</div>
+          <h4>Watched &amp; tuned</h4>
+          <p>We monitor your Google and AI visibility and keep it tuned throughout your 6-month support window.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOSTING -->
+  <section class="reveal" style="animation-delay:.16s">
+    <div class="eyebrow">Where it lives &amp; what it costs to run</div>
+    <h2>Hosting, in plain terms.</h2>
+    <p>Your new site runs on <b>Vercel</b> — the platform purpose-built for this technology and used by major companies worldwide. Here&rsquo;s what keeping it online costs.</p>
+    <div style="margin-top:18px;background:#faf8f2;border:1px solid var(--line);border-radius:12px;padding:18px 22px">
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--blue);margin-bottom:12px">Why Vercel, not your old BlueJet host?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px 26px;font-size:14px;color:var(--ink)">
+        <div><b style="color:var(--navy)">Faster</b> — pages load almost instantly, even on a phone.</div>
+        <div><b style="color:var(--navy)">More reliable</b> — built to stay online around the clock.</div>
+        <div><b style="color:var(--navy)">More secure</b> — nothing for hackers to break into the way old plug-ins get hacked.</div>
+        <div><b style="color:var(--navy)">No upkeep</b> — no software to patch, update, or renew.</div>
+      </div>
+    </div>
+    <div class="host">
+      <table class="htable">
+        <thead><tr><th>Vercel plan</th><th>Cost</th><th>For Providence</th></tr></thead>
+        <tbody>
+          <tr><td class="plan">Hobby</td><td><b>Free</b></td><td>Personal/non-commercial only — not permitted for an organization&rsquo;s live site.</td></tr>
+          <tr class="rec"><td class="plan">Pro<span class="recbadge">Recommended</span></td><td><b>$20/month</b><br><span style="font-size:12.5px;color:var(--muted)">≈ $240/year</span></td><td>The right plan for an organization. Your traffic stays well within its limits, so no surprise overage charges.</td></tr>
+          <tr><td class="plan">Enterprise</td><td>Custom</td><td>For very large operations — not needed here.</td></tr>
+        </tbody>
+      </table>
+      <div class="hostnote">
+        <div class="ic">i</div>
+        <div>
+          <b>Plus your domain &amp; email — and yes, BlueJet stays.</b> Your web address (provassn.com) renews at your registrar (about $15–20/year). Your site can&rsquo;t run <em>on</em> BlueJet — that older platform is built for WordPress, which is exactly why we move to Vercel — but your <b>domain and your BlueJet email accounts stay exactly where they are</b>. We simply point your web address at the new site; <b>your email is untouched and keeps working as it does today.</b>
+        </div>
+      </div>
+      <div class="hostnote" style="border-top:1px dashed var(--line)">
+        <div class="ic" style="background:var(--blue)">$</div>
+        <div>
+          <b>Who handles it:</b> on every package we set everything up on Vercel and hand you the account — you pay Vercel directly (about $20/month). We&rsquo;ll walk you through it so there are no surprises.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIERS -->
+  <section class="reveal" style="animation-delay:.17s">
+    <div class="eyebrow">Choose your package</div>
+    <h2>Three ways to move forward.</h2>
+    <p>Every package delivers the new website you&rsquo;ve seen. They differ in how complete, how visible, and how hands-off you&rsquo;d like it to be.</p>
+
+    <div class="tiers">
+      <!-- LAUNCH -->
+      <div class="tier">
+        <div class="cap"></div>
+        <div class="top">
+          <h3>Launch</h3>
+          <div class="for">Get the modern English site live, quickly.</div>
+          <div class="price">$3,500</div>
+          <div class="pricenote">one-time</div>
+          <div class="ready">⏱ Ready in ~2 weeks</div>
+        </div>
+        <ul>
+          <li><span class="chk">✓</span>The complete new website (every page, mobile-friendly)</li>
+          <li><span class="chk">✓</span>Built on the modern, secure platform &amp; set up on Vercel</li>
+          <li><span class="chk">✓</span>Search-engine foundations (SEO) so Google finds you</li>
+          <li><span class="chk">✓</span>Working consultation form, emailed to your office</li>
+          <li><span class="chk">✓</span>Launched on your domain, fully secure (https)</li>
+          <li><span class="chk">✓</span>30 days of fixes after launch</li>
+          <li class="muted"><span class="x">–</span>Interactive calculators</li>
+          <li class="muted"><span class="x">–</span>AI search visibility</li>
+          <li class="muted"><span class="x">–</span>Ukrainian-language version</li>
+          <li class="muted"><span class="x">–</span>Spam filter on the form</li>
+        </ul>
+      </div>
+
+      <!-- COMPLETE -->
+      <div class="tier feature">
+        <div class="cap"></div>
+        <div class="top">
+          <span class="badge">Most popular · Recommended</span>
+          <h3>Complete</h3>
+          <div class="for">The full bilingual site, built to be found.</div>
+          <div class="price">$5,000</div>
+          <div class="pricenote">one-time</div>
+          <div class="ready">⏱ Ready in ~3.5 weeks</div>
+        </div>
+        <ul>
+          <li><span class="chk">✓</span><b>Everything in Launch, plus:</b></li>
+          <li><span class="chk">✓</span><b>All four interactive calculators</b></li>
+          <li><span class="chk">✓</span>Full <b>Ukrainian-language version</b> with one-click switch</li>
+          <li><span class="chk">✓</span><b>SEO + AI search optimization</b> (ranking protection, structured data, AI visibility)</li>
+          <li><span class="chk">✓</span>Spam filter + instant auto-reply on your lead form</li>
+          <li><span class="chk">✓</span>Professional copy &amp; proofreading in English + Ukrainian</li>
+          <li><span class="chk">✓</span>Your existing news &amp; announcements moved over</li>
+          <li><span class="chk">✓</span>Accessibility pass (important for an insurer)</li>
+          <li><span class="chk">✓</span>30 days of support</li>
+        </ul>
+      </div>
+
+      <!-- CARE -->
+      <div class="tier">
+        <div class="cap"></div>
+        <div class="top">
+          <h3>Complete + Care</h3>
+          <div class="for">The fullest package — extra protection and a longer safety net.</div>
+          <div class="price">$8,000</div>
+          <div class="pricenote">one-time</div>
+          <div class="ready">⏱ Ready in ~5 weeks</div>
+        </div>
+        <ul>
+          <li><span class="chk">✓</span><b>Everything in Complete, plus:</b></li>
+          <li><span class="chk">✓</span><b>Improved security</b> hardening across the site</li>
+          <li><span class="chk">✓</span>Advanced spam protection</li>
+          <li><span class="chk">✓</span><b>Visitor analytics installed</b> — see how people find you</li>
+          <li><span class="chk">✓</span>Site monitoring</li>
+          <li><span class="chk">✓</span><b>6 months of monitoring &amp; support</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CUSTOM -->
+    <div class="custom">
+      <div class="cic">✎</div>
+      <div>
+        <h3>Need something different?</h3>
+        <p>A members-only area, online applications or forms, online payments, more languages, or another idea — tell us what you need and we&rsquo;ll put together a custom quote built around it.</p>
+      </div>
+      <div class="cta">Request a custom quote</div>
+    </div>
+  </section>
+
+  <!-- MATRIX -->
+  <section class="reveal" style="animation-delay:.19s">
+    <div class="eyebrow">Side-by-side</div>
+    <h2>What&rsquo;s included in each.</h2>
+    <div class="matrix">
+      <table>
+        <thead>
+          <tr><th class="rowlabel" style="text-align:left">Feature</th><th>Launch</th><th class="rec">Complete</th><th>+ Care</th></tr>
+        </thead>
+        <tbody>
+          <tr class="grouphdr"><td colspan="4">The website</td></tr>
+          <tr><td class="rowlabel">Modern, mobile-friendly website</td><td class="yes">✓</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">Modern, secure platform on Vercel</td><td class="yes">✓</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">Launched on your domain, secure (https)</td><td class="yes">✓</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">Interactive calculators</td><td class="no">–</td><td class="reccol part">All 4</td><td class="part">All 4</td></tr>
+          <tr><td class="rowlabel">Ukrainian-language version (one-click)</td><td class="no">–</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">Professional copy &amp; proofreading (EN + UA)</td><td class="no">–</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">Accessibility pass</td><td class="no">–</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
+
+          <tr class="grouphdr"><td colspan="4">Getting found &amp; getting leads</td></tr>
+          <tr><td class="rowlabel">SEO foundations (Google search)</td><td class="yes">✓</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">AI search optimization (ChatGPT, Gemini, etc.)</td><td class="no">–</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">Consultation / lead form</td><td class="part">Email only</td><td class="reccol part">+ spam filter + auto-reply</td><td class="part">+ spam filter + auto-reply</td></tr>
+
+          <tr class="grouphdr"><td colspan="4">Security, help &amp; support</td></tr>
+          <tr><td class="rowlabel">Old news &amp; content moved over</td><td class="no">–</td><td class="reccol yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">Improved security hardening</td><td class="no">–</td><td class="reccol no">–</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">Visitor analytics installed</td><td class="no">–</td><td class="reccol no">–</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">Site monitoring</td><td class="no">–</td><td class="reccol no">–</td><td class="yes">✓</td></tr>
+          <tr><td class="rowlabel">Post-launch support</td><td class="part">30 days</td><td class="reccol part">30 days</td><td class="part">6 months</td></tr>
+
+          <tr><td class="rowlabel">Ready in</td><td class="part">~2 weeks</td><td class="reccol part">~3.5 weeks</td><td class="part">~5 weeks</td></tr>
+          <tr class="priceR"><td class="rowlabel">Price</td><td>$3,500</td><td class="reccol">$5,000</td><td>$8,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:12px">All three packages are one-time payments. Vercel hosting (about $20/month) and your domain renewal (~$15–20/year) are paid directly to those providers on every package.</p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="reveal" style="animation-delay:.2s">
+    <div class="eyebrow">How it works</div>
+    <h2>Simple, from yes to live.</h2>
+    <div class="steps">
+      <div class="step"><h4>You choose a package</h4><p>Pick the option that fits — or ask for a custom quote if you need something in between.</p></div>
+      <div class="step"><h4>We finalize the details</h4><p>You review the text and rates, share your logo, and we adjust anything you&rsquo;d like changed.</p></div>
+      <div class="step"><h4>We launch it</h4><p>The site goes live on your own web address via Vercel, secure and ready — on your package&rsquo;s timeline.</p></div>
+      <div class="step"><h4>We support you after launch</h4><p>Your site is live, and we stay on hand for questions and reasonable tweaks during your support window.</p></div>
+    </div>
+
+    <div class="terms">
+      <div class="ln"><span class="k">To get started</span><span>A 50% deposit; the balance is due on launch.</span></div>
+      <div class="ln"><span class="k">Timeline</span><span>About 2 weeks for Launch · 3.5 weeks for Complete · 5 weeks for Complete + Care.</span></div>
+      <div class="ln"><span class="k">Hosting</span><span>Site runs on Vercel (about $20/month, paid directly). Your domain &amp; BlueJet email stay as they are.</span></div>
+      <div class="ln"><span class="k">What I&rsquo;ll need</span><span>Final sign-off on your text and rates, your logo, and access to your domain name.</span></div>
+      <div class="ln"><span class="k">Changes</span><span>This is essentially the finished product; reasonable adjustments to wording, photos, and layout are included.</span></div>
+    </div>
+
+    <div class="sign">
+      <div class="sigbox">Accepted on behalf of Providence Association<br><br><br>__________________________________<br>Signature &amp; date</div>
+      <div class="sigbox">Prepared by [Your Name / Studio]<br>[your email] · [your phone]<br><br>__________________________________<br>Signature &amp; date</div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <span><b>Website Modernization Proposal</b> · Providence Association of Ukrainian Catholics in America</span>
+    <span>Prepared by [Your Name] · June 2026</span>
+  </div>
+</div>
+</body>
+</html>
