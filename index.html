@@ -10,7 +10,7 @@
 <style>
   :root{
     --navy:#0b2a4a;--blue:#0057b7;--gold:#ffd400;--ink:#1d2533;--muted:#6b675c;
-    --paper:#fbfaf6;--card:#ffffff;--line:#e7e2d6;--line-strong:#d6cfbe;--good:#0057b7;
+    --paper:#fbfaf6;--card:#ffffff;--line:#e7e2d6;--line-strong:#d6cfbe;--good:#0057b7;--warn:#c0492f;
     --shadow:0 1px 2px rgba(11,42,74,.04),0 10px 30px rgba(11,42,74,.06);
     --display:'Fraunces',Georgia,serif;--body:'Libre Franklin',-apple-system,sans-serif;
   }
@@ -145,31 +145,8 @@
   .highlightprice .big{font-family:var(--display);font-size:24px;color:var(--blue);font-weight:700}
   .highlightprice .cap{font-size:12.5px;color:var(--muted)}
 
-  .cmp{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
-  table{width:100%;border-collapse:collapse}
-  .cmp th,.cmp td{padding:15px 18px;text-align:left;font-size:15px;vertical-align:top}
-  .cmp thead th{background:var(--navy);color:#fff;font-weight:600;font-size:13px;letter-spacing:.04em}
-  .cmp tbody tr:nth-child(even){background:#faf8f2}
-  .cmp tbody td{border-top:1px solid var(--line)}
-  .cmp .feat{font-weight:600;color:var(--navy);width:24%}
-  .cmp .old{color:var(--muted);width:38%}
-  .cmp .new{color:var(--ink);width:38%}
-  .cmp .new b{color:var(--navy)}
   .x{color:#b08a8a;font-weight:700;margin-right:6px}.chk{color:var(--good);font-weight:700;margin-right:6px}
 
-  /* hosting */
-  .host{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
-  .host .htable th,.host .htable td{padding:13px 18px;font-size:14.5px;text-align:left;border-top:1px solid var(--line)}
-  .host .htable thead th{background:var(--navy);color:#fff;border-top:0;font-size:13px;font-weight:600}
-  .host .htable td b{color:var(--navy)}
-  .host .htable .rec td{background:rgba(0,87,183,.05)}
-  .host .htable .plan{font-weight:700;color:var(--navy)}
-  .recbadge{display:inline-block;background:var(--blue);color:#fff;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:5px;margin-left:6px}
-  .hostnote{padding:18px 20px;background:#faf8f2;border-top:1px solid var(--line);font-size:14px;color:var(--ink);display:flex;gap:14px;align-items:flex-start}
-  .hostnote .ic{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}
-  .hostnote b{color:var(--navy)}
-
-  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;align-items:stretch}
   .tier{background:var(--card);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;box-shadow:var(--shadow)}
   .tier.feature{border-color:var(--blue);box-shadow:0 14px 40px rgba(0,87,183,.16);transform:translateY(-6px)}
   .tier .cap{height:6px;background:var(--line)}
@@ -210,10 +187,50 @@
   .reveal{opacity:0;transform:translateY(12px);animation:rise .6s cubic-bezier(.16,1,.3,1) forwards}
   @keyframes rise{to{opacity:1;transform:none}}
 
+  /* ---------- AUDIT ---------- */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+  .metric{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:12px;padding:18px 16px;box-shadow:var(--shadow)}
+  .metric .num{font-family:var(--display);font-size:28px;font-weight:700;color:var(--navy);line-height:1.05}
+  .metric .lbl{font-size:12.5px;color:var(--muted);margin-top:7px;font-weight:600;line-height:1.3}
+  .issues{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+  .issue{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px 16px 54px;position:relative;box-shadow:var(--shadow)}
+  .issue .n{position:absolute;left:15px;top:15px;width:28px;height:28px;border-radius:8px;background:var(--warn);color:#fff;font-family:var(--display);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+  .issue h4{color:var(--navy);font-size:14.5px;font-weight:700;line-height:1.25}
+  .issue p{color:var(--muted);font-size:13px;margin-top:5px;line-height:1.5}
+
+  /* ---------- OPTIONS ---------- */
+  .incl{margin-top:24px;background:var(--navy);color:#eef3fa;border-radius:14px;padding:22px 26px;box-shadow:var(--shadow)}
+  .incl .ttl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+  .incl ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 24px}
+  .incl li{position:relative;padding-left:24px;font-size:14px;color:#dce7f5;line-height:1.4}
+  .incl li::before{content:"✓";position:absolute;left:0;top:0;color:var(--gold);font-weight:700}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;align-items:stretch}
+  .addon{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .addon .card{background:#faf8f2;border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:13.5px;color:var(--muted);line-height:1.55}
+  .addon .card .h{display:block;font-weight:700;color:var(--navy);margin-bottom:3px;font-size:14.5px;font-family:var(--display)}
+  .addon .card b{color:var(--navy)}
+
+  /* ---------- PAGE-BY-PAGE AUDIT ---------- */
+  .pgaudit{margin-top:18px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
+  .pgaudit .scroll{overflow-x:auto}
+  .pgaudit table{width:100%;border-collapse:collapse;min-width:600px}
+  .pgaudit th,.pgaudit td{padding:9px 12px;text-align:left;vertical-align:top;border-top:1px solid var(--line);font-size:13px}
+  .pgaudit thead th{background:var(--navy);color:#fff;border-top:0;font-size:11px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+  .pgaudit th.r,.pgaudit td.r{text-align:center;width:1%;white-space:nowrap}
+  .pgaudit tbody tr:nth-child(even){background:#faf8f2}
+  .pgaudit .pg{font-weight:600;color:var(--navy);white-space:nowrap}
+  .pgaudit td.r{font-weight:700;font-size:15px}
+  .pgaudit .ki{color:var(--muted);font-size:12.5px;line-height:1.45;min-width:240px}
+  .pgaudit .rok{color:#1f8a4c}
+  .pgaudit .rpart{color:#b07d00}
+  .pgaudit .rbad{color:var(--warn)}
+  .pgaudit .legend{padding:11px 16px;background:#faf8f2;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;gap:20px;flex-wrap:wrap}
+  .pgaudit .legend b{font-weight:800;margin-right:3px}
+
   @media (max-width:720px){
-    .grid2,.tiers,.steps,.sign{grid-template-columns:1fr}
+    .grid2,.steps,.sign{grid-template-columns:1fr}
+    .metrics{grid-template-columns:repeat(2,1fr)}
     .tier.feature{transform:none}
-    .cmp .feat,.cmp .old,.cmp .new{width:auto}
     .pv .hero{grid-template-columns:1fr}
     .custom{grid-template-columns:1fr;text-align:center}
   }
@@ -223,6 +240,14 @@
     .sheet{padding:0 16px 64px}
     .masthead{padding:44px 0 30px}
     .summary .body{padding:24px 20px 28px}
+    .metrics{grid-template-columns:repeat(2,1fr)}
+    .issues,.opts,.addon{grid-template-columns:1fr}
+    .incl ul{grid-template-columns:1fr}
+    .pgaudit table{min-width:0}
+    .pgaudit th.r,.pgaudit td.r,.pgaudit .legend{display:none}
+    .pgaudit .pg{white-space:normal}
+    .pgaudit .ki{min-width:0}
+    .pgaudit th,.pgaudit td{padding:8px 10px}
 
     /* preview mockup → real mobile homepage */
     .pv .navlinks{display:none}
@@ -236,26 +261,6 @@
     .pv .contact{padding:18px 16px;gap:16px}
     .pv .cta2{margin:0 16px 16px}
 
-    /* comparison table → stacked cards */
-    .cmp table,.cmp tbody,.cmp tr,.cmp td{display:block;width:100%}
-    .cmp thead{display:none}
-    .cmp tbody tr{border-top:1px solid var(--line);padding:8px 0 12px}
-    .cmp tbody tr:nth-child(even){background:transparent}
-    .cmp td{border:0;padding:3px 16px}
-    .cmp td .x,.cmp td .chk{display:none}
-    .cmp .feat{font-family:var(--display);font-weight:600;font-size:18px;color:var(--navy);padding-top:14px;padding-bottom:3px}
-    .cmp .old::before{content:"Now — ";font-weight:700;color:var(--muted)}
-    .cmp .new::before{content:"New — ";font-weight:700;color:var(--blue)}
-
-    /* hosting table → stacked cards */
-    .host .htable,.host .htable tbody,.host .htable tr,.host .htable td{display:block;width:100%}
-    .host .htable thead{display:none}
-    .host .htable tbody tr{border-top:1px solid var(--line);padding:10px 0 12px}
-    .host .htable td{border:0;padding:2px 18px}
-    .host .htable .plan{font-size:16px;padding-top:6px}
-    .host .htable .rec td{background:transparent}
-    .host .htable tr.rec{background:rgba(0,87,183,.05)}
-
     /* misc */
     .terms .ln{flex-direction:column;gap:1px}
     .terms .ln .k{min-width:0}
@@ -267,7 +272,7 @@
     .reveal{animation:none;opacity:1;transform:none}
     .tier.feature{transform:none;box-shadow:none}
     section{page-break-inside:avoid}
-    .cmp,.tier,.summary,.step,.host,.browser{box-shadow:none}
+    .tier,.summary,.step,.browser{box-shadow:none}
     .pv{max-height:none;overflow:visible}
     *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   }
@@ -279,9 +284,9 @@
 
   <!-- MASTHEAD -->
   <header class="masthead reveal">
-    <div class="kicker">Website Modernization · Proposal &amp; Quote</div>
-    <h1>A modern home<br>for Providence, online.</h1>
-    <p class="sub">A complete rebuild of provassn.com on today&rsquo;s technology — faster, more secure, easier to find, and built for the Ukrainian Catholic community you serve.</p>
+    <div class="kicker">Website Audit · Modernization · Proposal</div>
+    <h1>A website worthy of<br>the Providence name.</h1>
+    <p class="sub">This proposal opens with a candid audit of provassn.com, then lays out two ways to act on what it found: a fully custom build, or your WordPress rebuilt properly. Both are priced for a non-profit.</p>
     <div class="meta">
       <div><div class="lbl">Prepared for</div><div class="val">Providence Association<br>of Ukrainian Catholics in America</div></div>
       <div><div class="lbl">Prepared by</div><div class="val">[Your Name / Studio]</div></div>
@@ -293,27 +298,90 @@
   <!-- THE SHORT VERSION -->
   <section class="reveal" style="animation-delay:.05s">
     <div class="eyebrow">The short version</div>
-    <h2>Your new website is already designed.</h2>
-    <p class="lead">Rather than start from a blank page, I&rsquo;ve already built a working sample of your new site on modern technology — the design, the main pages, and tools and search visibility your current site doesn&rsquo;t have. It&rsquo;s a starting point you can see and shape, not a finished product set in stone: any changes you&rsquo;d like — wording, photos, colors, layout — can be made as requested. The packages below cover tailoring it to you, launching it, and supporting it afterward.</p>
+    <h2>Providence has earned its reputation. The website doesn&rsquo;t reflect it yet.</h2>
+    <p class="lead">The audit found a short list of problems, every one of them fixable: no structured data for Google or AI to read, an aging WordPress install, slow loading on phones, and calculators that feel a decade old. The redesign that fixes them is already built; you&rsquo;ll see it a few sections down. Two ways to put it live come after that.</p>
     <div class="summary">
       <div class="flag"></div>
       <div class="body">
-        <h3>My recommendation: the Complete package — $5,000</h3>
-        <p>It delivers the full website in English <em>and</em> Ukrainian, all the interactive calculators, advanced visibility on Google <em>and</em> AI assistants, spam-protected lead forms, your existing news moved over, and support — still well below what an agency would charge.</p>
+        <h3>Two ways forward, both complete</h3>
+        <p>Both fix everything in the audit and ship the same finished website: all four calculators, the schema and AI-search work, a protected contact form, and six months of support. The only real decision is the platform underneath: a fully custom build, or your existing WordPress rebuilt to a professional standard.</p>
         <div class="row">
-          <span class="pill">Launch — <b>$3,500</b></span>
-          <span class="pill">Complete — <b>$5,000</b> · recommended</span>
-          <span class="pill">Complete&nbsp;+&nbsp;Care — <b>$8,000</b></span>
+          <span class="pill">WordPress rebuild — <b>$4,500</b></span>
+          <span class="pill">Custom build — <b>$5,000</b> · recommended</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- AUDIT -->
+  <section class="reveal" style="animation-delay:.07s">
+    <div class="eyebrow">The audit · key findings</div>
+    <h2>Where provassn.com is losing ground.</h2>
+    <p>Providence has a century of history and products people search for every day. The current site keeps most of that hidden from Google and the AI assistants people now turn to, and it makes the visitors who do arrive work too hard. A crawl of its ~35&ndash;40 pages turned up the seven problems below.</p>
+    <div class="metrics">
+      <div class="metric"><div class="num">~35&ndash;40</div><div class="lbl">Pages indexed</div></div>
+      <div class="metric"><div class="num">Partial</div><div class="lbl">Meta descriptions</div></div>
+      <div class="metric"><div class="num">0 / 35</div><div class="lbl">Pages with schema</div></div>
+      <div class="metric"><div class="num">~45&ndash;60</div><div class="lbl">Est. mobile PageSpeed</div></div>
+    </div>
+    <div class="issues">
+      <div class="issue"><div class="n">1</div><h4>No schema markup anywhere</h4><p>Not one page carries structured data: no Organization, LocalBusiness, FinancialProduct, or FAQ markup. Google and the AI engines (ChatGPT, Perplexity, AI Overviews) read that markup to answer questions. Without it, provassn.com doesn&rsquo;t appear in AI answers, even where competitors do.</p></div>
+      <div class="issue"><div class="n">2</div><h4>Bilingual content, handled inconsistently</h4><p>Some pages mix Ukrainian into English; most service pages are English only. Roughly 300,000 Ukrainians have settled in PA and NJ since 2022, and no competitor is reaching them in their own language.</p></div>
+      <div class="issue"><div class="n">3</div><h4>An FAQ page with no FAQ markup</h4><p>There&rsquo;s already a life-insurance FAQ page, but it lacks FAQPage markup. That markup is what produces the expandable Q&amp;A results in Google and the answers ChatGPT and Perplexity quote. Adding it is quick.</p></div>
+      <div class="issue"><div class="n">4</div><h4>Calculators people give up on</h4><p>The premium and retirement calculators are static forms that give nothing back until you submit. The versions buyers expect now move a slider and show the number instantly. Done well, a calculator is one of the best ways to turn a visitor into a lead.</p></div>
+      <div class="issue"><div class="n">5</div><h4>Slow, and technically untidy</h4><p>Each page ships 20-plus empty comment blocks left by plugins, images aren&rsquo;t compressed, and nothing is cached. Estimated mobile PageSpeed sits around 45&ndash;60, and Core Web Vitals are likely failing. Google uses both as ranking signals.</p></div>
+      <div class="issue"><div class="n">6</div><h4>A broken sitemap and duplicate pages</h4><p>The sitemap shortcode appears to render empty, and two separate privacy pages send Google a duplicate-content signal. Both waste the crawl budget Google spends on the site.</p></div>
+      <div class="issue"><div class="n">7</div><h4>No language switch, no standing call to action</h4><p>A Ukrainian speaker who lands on an English page has no way to switch, and no page keeps a &ldquo;Get a quote&rdquo; or &ldquo;Speak with us in Ukrainian&rdquo; button in view. What sets Providence apart is hidden instead of obvious.</p></div>
+    </div>
+    <p style="margin-top:30px;color:var(--muted)">The same gaps repeat across the whole site. Here&rsquo;s every page reviewed, with the main issue on each.</p>
+    <div class="pgaudit">
+      <div class="scroll">
+        <table>
+          <thead><tr><th class="pg">Page</th><th class="r">Title</th><th class="r">Meta</th><th class="r">Schema</th><th class="r">Bilingual</th><th class="ki">Key issue</th></tr></thead>
+          <tbody>
+          <tr><td class="pg">Homepage</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rpart">~</td><td class="ki">Mixed EN/UK inline. No Organization, LocalBusiness, or FAQ schema.</td></tr>
+          <tr><td class="pg">Life Insurance</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rpart">~</td><td class="ki">Bilingual mix inline. No InsuranceProduct or FAQ schema.</td></tr>
+          <tr><td class="pg">Whole Life Insurance</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rpart">~</td><td class="ki">No InsuranceProduct schema. No structured FAQ section.</td></tr>
+          <tr><td class="pg">Youth Life Insurance</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">No schema. Weak links to the rates and calculator pages.</td></tr>
+          <tr><td class="pg">Rates</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Title is just ‘Rates’. No FinancialProduct schema. Static table.</td></tr>
+          <tr><td class="pg">Premium Rate Calculator</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Basic form/iframe. No schema. English only. High-abandonment UX.</td></tr>
+          <tr><td class="pg">How Much Do I Need?</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">FAQ-style content with zero FAQPage schema.</td></tr>
+          <tr><td class="pg">FAQs – Life Insurance</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">FAQ content exists but has no FAQPage schema. A missed rich result.</td></tr>
+          <tr><td class="pg">Retirement</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rpart">~</td><td class="ki">Title mixes EN/UK. No FinancialProduct schema.</td></tr>
+          <tr><td class="pg">Savings</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Thin content. No schema. English only.</td></tr>
+          <tr><td class="pg">Annuities</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Thin content. No FAQ schema. A key product, under-optimized.</td></tr>
+          <tr><td class="pg">College Tuition Fund</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">No schema. English only. A unique differentiator, undersold.</td></tr>
+          <tr><td class="pg">IRA &amp; Roth IRA</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">No FAQ schema. No Ukrainian. Misses the immigrant audience.</td></tr>
+          <tr><td class="pg">Retirement Calculators</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Basic UX. No schema. English only.</td></tr>
+          <tr><td class="pg">Final Expenses</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">No schema. English only. No FAQ section.</td></tr>
+          <tr><td class="pg">Single Premium Whole Life</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Weak title. No schema. No Ukrainian.</td></tr>
+          <tr><td class="pg">Burial Reserve Trust</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Title formatting issues. No schema.</td></tr>
+          <tr><td class="pg">Funeral Preplanning</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Weak content depth. No schema.</td></tr>
+          <tr><td class="pg">Final Expense Estimate</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Form-only page. No schema. No Ukrainian.</td></tr>
+          <tr><td class="pg">About / Why Providence?</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rpart">~</td><td class="ki">No Organization schema. No founding-year rich content.</td></tr>
+          <tr><td class="pg">History &amp; Mission</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rpart">~</td><td class="ki">Good content. No schema. Mixed language, unstructured.</td></tr>
+          <tr><td class="pg">Fraternal Benefits</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Thin content. No schema. English only.</td></tr>
+          <tr><td class="pg">Fraternal Benefit Society?</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Good explainer. No FAQ schema despite a Q&amp;A format.</td></tr>
+          <tr><td class="pg">Scholarships</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Good content. No Event or FAQ schema. English only.</td></tr>
+          <tr><td class="pg">Finance Blog</td><td class="r rpart">~</td><td class="r rpart">~</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Variable quality. No Article schema. No Ukrainian.</td></tr>
+          <tr><td class="pg">Contact Us</td><td class="r rok">✓</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rpart">~</td><td class="ki">No LocalBusiness schema. Partial Ukrainian text.</td></tr>
+          <tr><td class="pg">Forms</td><td class="r rpart">~</td><td class="r rpart">~</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">PDFs and DOCs linked. No schema. English only.</td></tr>
+          <tr><td class="pg">Links</td><td class="r rpart">~</td><td class="r rpart">~</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Generic page. No SEO value.</td></tr>
+          <tr><td class="pg">Donate to Charity</td><td class="r rpart">~</td><td class="r rok">✓</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">No schema. English only. No conversion funnel.</td></tr>
+          <tr><td class="pg">Privacy Policy + Statement</td><td class="r rpart">~</td><td class="r rpart">~</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">Duplicate pages send Google a duplicate-content signal.</td></tr>
+          <tr><td class="pg">Sitemap</td><td class="r rpart">~</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="r rbad">✗</td><td class="ki">The [wp_sitemap_page] shortcode likely renders blank or broken.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="legend"><span><b class="rok">✓</b> Good</span><span><b class="rpart">~</b> Partial</span><span><b class="rbad">✗</b> Missing or broken</span></div>
     </div>
   </section>
 
   <!-- PREVIEW -->
   <section class="reveal" style="animation-delay:.08s">
     <div class="eyebrow">A look at your new homepage</div>
-    <h2>See it, don&rsquo;t just read about it.</h2>
-    <p>This is a <b>sample preview</b> of your new homepage — scroll inside the window below to explore the full page. The live site is fully interactive and looks just as sharp on a phone, and every part of it can be adjusted to your liking.</p>
+    <h2>The redesign, top to bottom.</h2>
+    <p>Scroll inside the window to move through the whole homepage. It&rsquo;s a <b>sample</b>, not the final copy, and everything in it can change. The live version is fully interactive and works just as well on a phone.</p>
     <div class="browser">
       <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><div class="addr">🔒 <b>provassn.com</b></div><span class="samplebadge">Sample preview</span></div>
       <div class="pv">
@@ -411,157 +479,96 @@
         </div>
       </div>
     </div>
-    <p class="pvcap">A sample preview — the finished site is fully interactive and may vary slightly.</p>
+    <p class="pvcap">A sample; the finished site is interactive and will differ in places.</p>
   </section>
 
   <!-- WHAT'S BUILT / WORTH -->
   <section class="reveal" style="animation-delay:.1s">
     <div class="eyebrow">What it&rsquo;s worth</div>
-    <h2>A full custom design, not a template.</h2>
+    <h2>What this costs elsewhere.</h2>
     <div class="grid2">
       <div class="built">
-        <p class="lead">The sample already covers every page of your current site — redesigned, mobile-friendly, and in your blue-and-gold colors — with a news section, four interactive calculators, modern search setup, and your Ukrainian detailing throughout. The heavy design work is done; the packages below are about finishing and launching it.</p>
+        <p class="lead">The design is the part that usually costs the most and takes the longest, and it&rsquo;s already finished. Every page is laid out and mobile-ready, with the calculators, schema, and search work the audit calls for. What&rsquo;s left is the build, and that&rsquo;s where the two options differ.</p>
       </div>
       <div class="worthcard">
         <div class="ttl">What this normally costs</div>
         <div class="worthrow"><span>Comparable custom build (agency)</span><b>$15k–$30k</b></div>
         <div class="worthrow"><span>Basic professional site (NJ avg.)</span><b>$4k–$8k</b></div>
-        <div class="worthrow"><span>This project — your packages from</span><b>$3,500</b></div>
+        <div class="worthrow"><span>This project, from</span><b>$4,500</b></div>
         <div class="highlightprice">
-          <div class="big">A fraction of agency price</div>
-          <div class="cap">Custom-grade quality, without the custom-grade price — and the modern platform costs less to run than your current one.</div>
+          <div class="big">A fraction of agency rates</div>
+          <div class="cap">The same work a $15k agency would deliver, priced for a non-profit and cheaper to run than the site you have now.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OLD VS NEW -->
-  <section class="reveal" style="animation-delay:.14s">
-    <div class="eyebrow">Your site today vs. your new site</div>
-    <h2>What actually changes for you.</h2>
-    <div class="cmp">
-      <table>
-        <thead><tr><th>&nbsp;</th><th>Your current website</th><th>Your new website</th></tr></thead>
-        <tbody>
-          <tr><td class="feat">Look &amp; feel</td><td class="old"><span class="x">–</span>Dated design, last refreshed years ago</td><td class="new"><span class="chk">✓</span><b>Modern, clean, and professional</b>, in your blue-and-gold colors</td></tr>
-          <tr><td class="feat">On phones</td><td class="old"><span class="x">–</span>Awkward and hard to read on a phone</td><td class="new"><span class="chk">✓</span>Looks great on <b>phones, tablets, and computers</b></td></tr>
-          <tr><td class="feat">Technology &amp; upkeep</td><td class="old"><span class="x">–</span>WordPress + plug-ins; constant updates &amp; security risk</td><td class="new"><span class="chk">✓</span><b>Modern, low-maintenance platform</b> — the same technology behind Netflix &amp; OpenAI — with far stronger security</td></tr>
-          <tr><td class="feat">Ukrainian language</td><td class="old"><span class="x">–</span>Mixed into the same pages, hard to follow</td><td class="new"><span class="chk">✓</span><b>One-click switch</b> between English and Українська <em>(Complete &amp; Care)</em></td></tr>
-          <tr><td class="feat">Helpful tools</td><td class="old"><span class="x">–</span>Static pages only</td><td class="new"><span class="chk">✓</span><b>Interactive calculators</b> <em>(Complete &amp; Care)</em></td></tr>
-          <tr><td class="feat">Getting new members</td><td class="old"><span class="x">–</span>No easy way for visitors to reach you</td><td class="new"><span class="chk">✓</span><b>&ldquo;Request a consultation&rdquo; form</b> sent straight to your office</td></tr>
-          <tr><td class="feat">Found on Google</td><td class="old"><span class="x">–</span>Aging search setup</td><td class="new"><span class="chk">✓</span><b>Modern search setup</b> on every package</td></tr>
-          <tr><td class="feat">Found by AI assistants</td><td class="old"><span class="x">–</span>Not built to be read by ChatGPT, Gemini, etc.</td><td class="new"><span class="chk">✓</span><b>Optimized to be cited by AI search</b> <em>(Complete &amp; Care)</em></td></tr>
-          <tr><td class="feat">Writing &amp; spelling</td><td class="old"><span class="x">–</span>Typos in both English and Ukrainian</td><td class="new"><span class="chk">✓</span><b>Professionally proofread</b> in both languages <em>(Complete &amp; Care)</em></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- HOSTING -->
-  <section class="reveal" style="animation-delay:.16s">
-    <div class="eyebrow">Where it lives &amp; what it costs to run</div>
-    <h2>Hosting, in plain terms.</h2>
-    <p>Your new site runs on <b>Vercel</b> — the platform purpose-built for this technology and used by major companies worldwide. Here&rsquo;s what keeping it online costs.</p>
-    <div class="host">
-      <table class="htable">
-        <thead><tr><th>Vercel plan</th><th>Cost</th><th>For Providence</th></tr></thead>
-        <tbody>
-          <tr><td class="plan">Hobby</td><td><b>Free</b></td><td>Personal/non-commercial only — not permitted for an organization&rsquo;s live site.</td></tr>
-          <tr class="rec"><td class="plan">Pro<span class="recbadge">Recommended</span></td><td><b>$20/month</b><br><span style="font-size:12.5px;color:var(--muted)">≈ $240/year</span></td><td>The right plan for an organization. Your traffic stays well within its limits, so no surprise overage charges.</td></tr>
-          <tr><td class="plan">Enterprise</td><td>Custom</td><td>For very large operations — not needed here.</td></tr>
-        </tbody>
-      </table>
-      <div class="hostnote">
-        <div class="ic">i</div>
-        <div>
-          <b>Your domain &amp; email stay put.</b> provassn.com renews at your registrar (~$15&ndash;20/year) and your <b>BlueJet email is untouched</b> — we simply point your web address at the new site. On every package we set everything up on Vercel and hand you the account; you pay Vercel directly (about $20/month).
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TIERS -->
+  <!-- OPTIONS -->
   <section class="reveal" style="animation-delay:.17s">
-    <div class="eyebrow">Choose your package</div>
-    <h2>Three ways to move forward.</h2>
-    <p>Every package delivers the new website you&rsquo;ve seen. They differ in how complete, how visible, and how hands-off you&rsquo;d like it to be.</p>
+    <div class="eyebrow">Your two options</div>
+    <h2>Same website, two ways to build it.</h2>
+    <p>Either option clears the audit in full, and the finished site is the same. The difference is what runs underneath: a fully custom build, or your existing WordPress rebuilt to the same standard.</p>
 
-    <div class="tiers">
-      <!-- LAUNCH -->
+    <div class="incl">
+      <div class="ttl">Included in both options</div>
+      <ul>
+        <li>Every page redesigned, mobile first</li>
+        <li>All four interactive calculators</li>
+        <li>Schema markup across the site (Organization, FAQ, products)</li>
+        <li>Google SEO and AI-search optimization</li>
+        <li>Speed and technical cleanup (caching, images, code)</li>
+        <li>Consultation form with spam protection</li>
+        <li>Sitemap fix, Google Business and analytics setup</li>
+        <li>Six months of support, with 3&ndash;5 rounds of changes</li>
+      </ul>
+    </div>
+
+    <div class="opts">
       <div class="tier">
         <div class="cap"></div>
         <div class="top">
-          <h3>Launch</h3>
-          <div class="for">Get the modern English site live, quickly.</div>
-          <div class="price">$3,500</div>
-          <div class="pricenote">one-time</div>
-          <div class="ready">⏱ Ready in ~2 weeks</div>
+          <h3>WordPress rebuild</h3>
+          <div class="for">Keep the platform your team knows, rebuilt to current standards.</div>
+          <div class="price">$4,500</div>
+          <div class="pricenote">one-time · ready in ~3&ndash;4 weeks</div>
         </div>
         <ul>
-          <li><span class="chk">✓</span>The complete new website (every page, mobile-friendly)</li>
-          <li><span class="chk">✓</span>Built on the modern, secure platform &amp; set up on Vercel</li>
-          <li><span class="chk">✓</span>Search-engine foundations (SEO) so Google finds you</li>
-          <li><span class="chk">✓</span>Working consultation form, emailed to your office</li>
-          <li><span class="chk">✓</span>Launched on your domain, fully secure (https)</li>
-          <li><span class="chk">✓</span>30 days of fixes after launch</li>
-          <li class="muted"><span class="x">–</span>Interactive calculators</li>
-          <li class="muted"><span class="x">–</span>AI search visibility</li>
-          <li class="muted"><span class="x">–</span>Ukrainian-language version</li>
-          <li class="muted"><span class="x">–</span>Spam filter on the form</li>
+          <li><span class="chk">✓</span>It stays on WordPress, so <b>no migration</b></li>
+          <li><span class="chk">✓</span>You <b>edit content yourself</b>, in the dashboard you already use</li>
+          <li><span class="chk">✓</span>Rebuilt clean: schema, caching, no plugin bloat</li>
+          <li><span class="chk">✓</span>Runs on your current hosting</li>
+          <li class="muted"><span class="x">–</span>Plugins still need the occasional update</li>
         </ul>
       </div>
-
-      <!-- COMPLETE -->
       <div class="tier feature">
         <div class="cap"></div>
         <div class="top">
-          <span class="badge">Most popular · Recommended</span>
-          <h3>Complete</h3>
-          <div class="for">The full bilingual site, built to be found.</div>
+          <span class="badge">Recommended</span>
+          <h3>Custom build</h3>
+          <div class="for">The fastest version, and the least to maintain.</div>
           <div class="price">$5,000</div>
-          <div class="pricenote">one-time</div>
-          <div class="ready">⏱ Ready in ~3.5 weeks</div>
+          <div class="pricenote">one-time · ready in ~3.5 weeks</div>
         </div>
         <ul>
-          <li><span class="chk">✓</span><b>Everything in Launch, plus:</b></li>
-          <li><span class="chk">✓</span><b>All four interactive calculators</b></li>
-          <li><span class="chk">✓</span>Full <b>Ukrainian-language version</b> with one-click switch</li>
-          <li><span class="chk">✓</span><b>SEO + AI search optimization</b> (ranking protection, structured data, AI visibility)</li>
-          <li><span class="chk">✓</span>Spam filter + instant auto-reply on your lead form</li>
-          <li><span class="chk">✓</span>Professional copy &amp; proofreading in English + Ukrainian</li>
-          <li><span class="chk">✓</span>Your existing news &amp; announcements moved over</li>
-          <li><span class="chk">✓</span>Accessibility pass (important for an insurer)</li>
-          <li><span class="chk">✓</span>30 days of support</li>
-        </ul>
-      </div>
-
-      <!-- CARE -->
-      <div class="tier">
-        <div class="cap"></div>
-        <div class="top">
-          <h3>Complete + Care</h3>
-          <div class="for">The fullest package — extra protection and a longer safety net.</div>
-          <div class="price">$8,000</div>
-          <div class="pricenote">one-time</div>
-          <div class="ready">⏱ Ready in ~5 weeks</div>
-        </div>
-        <ul>
-          <li><span class="chk">✓</span><b>Everything in Complete, plus:</b></li>
-          <li><span class="chk">✓</span><b>Improved security</b> hardening across the site</li>
-          <li><span class="chk">✓</span>Advanced spam protection</li>
-          <li><span class="chk">✓</span><b>Visitor analytics installed</b> — see how people find you</li>
-          <li><span class="chk">✓</span>Site monitoring</li>
-          <li><span class="chk">✓</span><b>6 months of monitoring &amp; support</b></li>
+          <li><span class="chk">✓</span>Built on <b>Next.js</b>, the framework behind Netflix and OpenAI</li>
+          <li><span class="chk">✓</span><b>Loads in well under a second</b>, and passes Core Web Vitals</li>
+          <li><span class="chk">✓</span>The cleanest possible signals for <b>Google and AI search</b></li>
+          <li><span class="chk">✓</span>Hardened by default, with <b>almost nothing to maintain</b></li>
+          <li><span class="chk">✓</span>Hosting about $20/mo on Vercel, paid directly</li>
         </ul>
       </div>
     </div>
 
-    <!-- CUSTOM -->
+    <div class="addon">
+      <div class="card"><span class="h">Adding Ukrainian</span>A full Ukrainian translation (switcher, page content, and Ukrainian-language SEO) sits on top of either option, priced separately and modestly. Given your bilingual staff and the audience in finding #2, it may be the highest-return part of the project.</div>
+      <div class="card"><span class="h">Beyond six months</span>Updates, edits, and ongoing maintenance are available on a monthly plan, <b>quoted on request</b> and with no obligation to take it. Either way, your domain and BlueJet email stay exactly as they are.</div>
+    </div>
+
     <div class="custom">
       <div class="cic">✎</div>
       <div>
-        <h3>Need something different?</h3>
-        <p>A members-only area, online applications or forms, online payments, more languages, or another idea — tell us what you need and we&rsquo;ll put together a custom quote built around it.</p>
+        <h3>Need something else?</h3>
+        <p>A members&rsquo; portal, online applications, or online payments are all possible. Tell me what you have in mind and I&rsquo;ll quote it separately.</p>
       </div>
       <div class="cta">Request a custom quote</div>
     </div>
@@ -570,20 +577,20 @@
   <!-- HOW IT WORKS -->
   <section class="reveal" style="animation-delay:.2s">
     <div class="eyebrow">How it works</div>
-    <h2>Simple, from yes to live.</h2>
+    <h2>From sign-off to launch.</h2>
     <div class="steps">
-      <div class="step"><h4>You choose a package</h4><p>Pick the option that fits — or ask for a custom quote if you need something in between.</p></div>
-      <div class="step"><h4>We finalize the details</h4><p>You review the text and rates, share your logo, and we adjust anything you&rsquo;d like changed.</p></div>
-      <div class="step"><h4>We launch it</h4><p>The site goes live on your own web address via Vercel, secure and ready — on your package&rsquo;s timeline.</p></div>
-      <div class="step"><h4>We support you after launch</h4><p>Your site is live, and we stay on hand for questions and reasonable tweaks during your support window.</p></div>
+      <div class="step"><h4>You pick an option</h4><p>Custom or WordPress. If you&rsquo;re unsure, tell me your priorities and budget and I&rsquo;ll recommend one.</p></div>
+      <div class="step"><h4>We talk specifics</h4><p>One kickoff call to settle copy, calculators, and design direction. You send your logo and current rates.</p></div>
+      <div class="step"><h4>I build, you approve</h4><p>Nothing goes live until you&rsquo;ve seen it and signed off. No surprises.</p></div>
+      <div class="step"><h4>Launch, then six months of support</h4><p>It goes live on your domain, on schedule. After that I&rsquo;m on hand for six months and your 3&ndash;5 rounds of changes.</p></div>
     </div>
 
     <div class="terms">
       <div class="ln"><span class="k">To get started</span><span>A 50% deposit; the balance is due on launch.</span></div>
-      <div class="ln"><span class="k">Timeline</span><span>About 2 weeks for Launch · 3.5 weeks for Complete · 5 weeks for Complete + Care.</span></div>
-      <div class="ln"><span class="k">Hosting</span><span>Site runs on Vercel (about $20/month, paid directly). Your domain &amp; BlueJet email stay as they are.</span></div>
-      <div class="ln"><span class="k">What I&rsquo;ll need</span><span>Final sign-off on your text and rates, your logo, and access to your domain name.</span></div>
-      <div class="ln"><span class="k">Changes</span><span>This is essentially the finished product; reasonable adjustments to wording, photos, and layout are included.</span></div>
+      <div class="ln"><span class="k">Timeline</span><span>About 3&ndash;4 weeks for the WordPress option · ~3.5 weeks for the custom build.</span></div>
+      <div class="ln"><span class="k">Hosting</span><span>The custom build runs on Vercel (about $20/month, paid directly); WordPress stays on your current host. Your domain and BlueJet email stay as they are either way.</span></div>
+      <div class="ln"><span class="k">What I&rsquo;ll need</span><span>A short kickoff call, your logo and final rates, and access to your domain name.</span></div>
+      <div class="ln"><span class="k">Support</span><span>Six months of support after launch, including 3&ndash;5 rounds of changes. Ongoing maintenance available afterward, quoted on request.</span></div>
     </div>
 
     <div class="sign">
