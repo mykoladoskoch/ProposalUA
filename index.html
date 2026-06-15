@@ -210,6 +210,11 @@
   .addon .card .h{display:block;font-weight:700;color:var(--navy);margin-bottom:3px;font-size:14.5px;font-family:var(--display)}
   .addon .card b{color:var(--navy)}
 
+  .pvframe{display:block;width:100%;height:560px;border:0;background:#fff}
+  .pvcap a{color:var(--blue);font-style:normal;font-weight:600}
+
+  .price .was{font-family:var(--body);font-size:17px;font-weight:500;color:var(--muted);text-decoration:line-through;margin-right:7px;vertical-align:2px}
+
   /* ---------- PAGE-BY-PAGE AUDIT ---------- */
   .pgaudit{margin-top:18px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
   .pgaudit .scroll{overflow-x:auto}
@@ -248,6 +253,7 @@
     .pgaudit .pg{white-space:normal}
     .pgaudit .ki{min-width:0}
     .pgaudit th,.pgaudit td{padding:8px 10px}
+    .pvframe{height:440px}
 
     /* preview mockup → real mobile homepage */
     .pv .navlinks{display:none}
@@ -289,7 +295,7 @@
     <p class="sub">This proposal opens with a candid audit of provassn.com, then lays out two ways to act on what it found: a fully custom build, or your WordPress rebuilt properly. Both are priced for a non-profit.</p>
     <div class="meta">
       <div><div class="lbl">Prepared for</div><div class="val">Providence Association<br>of Ukrainian Catholics in America</div></div>
-      <div><div class="lbl">Prepared by</div><div class="val">[Your Name / Studio]</div></div>
+      <div><div class="lbl">Prepared by</div><div class="val">NovaUA</div></div>
       <div><div class="lbl">Date</div><div class="val">June 2026</div></div>
       <div><div class="lbl">Quote valid</div><div class="val">30 days</div></div>
     </div>
@@ -299,12 +305,12 @@
   <section class="reveal" style="animation-delay:.05s">
     <div class="eyebrow">The short version</div>
     <h2>Providence has earned its reputation. The website doesn&rsquo;t reflect it yet.</h2>
-    <p class="lead">The audit found a short list of problems, every one of them fixable: no structured data for Google or AI to read, an aging WordPress install, slow loading on phones, and calculators that feel a decade old. The redesign that fixes them is already built; you&rsquo;ll see it a few sections down. Two ways to put it live come after that.</p>
+    <p class="lead">The audit found a short list of problems, every one of them fixable: no structured data for Google or AI to read, an aging WordPress install, slow loading on phones, and calculators that feel a decade old. The new design is already built; it&rsquo;s the live site you can scroll through below. Making it rank is the real work ahead: schema, AI and search optimization, metas, a working sitemap, the calculators. That&rsquo;s what these two options deliver.</p>
     <div class="summary">
       <div class="flag"></div>
       <div class="body">
-        <h3>Two ways forward, both complete</h3>
-        <p>Both fix everything in the audit and ship the same finished website: all four calculators, the schema and AI-search work, a protected contact form, and six months of support. The only real decision is the platform underneath: a fully custom build, or your existing WordPress rebuilt to a professional standard.</p>
+        <h3>Two ways to build it. I recommend custom.</h3>
+        <p>Both options deliver the audit fixes: the calculators, the schema and AI-search work, the metas and sitemap, a protected contact form, and three months of support. The difference is the build. The custom version is the one you can already see live below; the WordPress version is the familiar-to-manage alternative, built fresh to come as close as the platform allows.</p>
         <div class="row">
           <span class="pill">WordPress rebuild — <b>$4,500</b></span>
           <span class="pill">Custom build — <b>$5,000</b> · recommended</span>
@@ -379,107 +385,14 @@
 
   <!-- PREVIEW -->
   <section class="reveal" style="animation-delay:.08s">
-    <div class="eyebrow">A look at your new homepage</div>
-    <h2>The redesign, top to bottom.</h2>
-    <p>Scroll inside the window to move through the whole homepage. It&rsquo;s a <b>sample</b>, not the final copy, and everything in it can change. The live version is fully interactive and works just as well on a phone.</p>
+    <div class="eyebrow">The custom build · live preview</div>
+    <h2>The real site, in your browser.</h2>
+    <p>What you&rsquo;re scrolling through below is the <b>custom build</b>: the real site, embedded live. It&rsquo;s still being finished, so some copy and details will change before launch. To open it full-screen, use the link beneath the window.</p>
     <div class="browser">
-      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><div class="addr">🔒 <b>provassn.com</b></div><span class="samplebadge">Sample preview</span></div>
-      <div class="pv">
-        <div class="topstrip"><span>Українською · In English</span><span>Serving Pennsylvania · New Jersey · Michigan</span></div>
-        <div class="nav">
-          <div class="brand">
-            <svg viewBox="0 0 120 120" width="24" height="24" style="border-radius:6px"><rect width="120" height="120" rx="26" fill="#0b2a4a"/><svg x="36" y="18" width="48" height="84" viewBox="96.6 138.6 399 574.5" fill="#ffd400" preserveAspectRatio="xMidYMid meet"><path d="m229.32 545c0 0.564 0.019 1.124 0.027 1.686h26.348c-0.021-0.702-0.037-1.407-0.045-2.111-0.01-0.58-0.018-1.16-0.019-1.739-0.02-8.752 1.993-17.254 2.233-20.567 6.917-50.522 39.9-72.145 40.603-72.6 2.275 1.966 34.573 28.195 40.717 73.271 0.232 3.308 2.09 11.883 2.199 20.641 0.016 0.581 0.023 1.163 0.021 1.746-2e-3 0.453-8e-3 0.906-0.016 1.359h26.287c0.01-0.562 0.027-1.121 0.027-1.686 0-44.438-18.871-75.975-36.902-95.973h0.514c-15.414-32.495-18.191-68.848-16.604-104.93 1.518-34.486 2.652-78.986 3.951-113.48 0.709-18.846-3.809-36.292-16.58-51.511-0.774-0.922-3.188-3.236-3.849-3.659 0 0-3.071 2.771-3.843 3.69-12.771 15.22-17.288 32.665-16.579 51.51 1.298 34.493 2.433 78.993 3.951 113.48 1.579 35.907-0.087 72.666-15.955 104.69-17.903 19.767-36.486 51.129-36.486 96.181z"/><path d="m447.33 224.63c-0.759 0.11-1.285 0.074-1.705 0.269-1.205 0.558-2.409 1.141-3.54 1.833-15.479 9.479-28.864 21.331-40.152 35.547-22.653 28.53-33.69 61.319-36.552 97.377-1.523 19.211-4.318 38.32-6.472 57.482-1.089 9.687-2.024 19.39-3.038 29.166 9.51-1.566 16.893 1.918 23.221 7.676 8.662 7.883 10.098 20.648 2.687 29.734-3.39 4.156-8.524 7.114-13.327 9.906-0.18 0.104-0.356 0.203-0.53 0.297 2.668 7.489 4.84 15.567 6.324 24.246 0.563-0.206 1.167-0.426 1.513-0.547 20.106-7.053 32.49-20.742 35.523-42.1 2.582-18.186-7.431-37.465-24.464-47.231-2.907-1.667-3.829-3.229-3.417-6.576 2.615-21.288 5.39-42.569 7.321-63.925 1.789-19.779 7.316-38.067 15.954-56.049 4.029-8.389 15.475-25.107 15.475-25.107s0 187.09 0 280.14h-101.05v22.549h16.932c-5.077 24.299-17.379 40.557-26.932 49.984v-76.666c1.428-5.992 5.944-14.009 19.416-18.04 0.679-0.203 1.356-0.438 2.035-0.674-0.439-3.59-0.921-6.534-1.022-8.118-0.653-5.273-1.614-10.194-2.787-14.796-2.343 0.743-4.286 1.382-5.673 1.884-8.488 3.068-21.69 14.162-24.518 16.448-2.827-2.286-16.029-13.38-24.517-16.448-1.387-0.502-3.331-1.141-5.673-1.884-1.172 4.602-2.134 9.522-2.787 14.796-0.102 1.584-0.583 4.528-1.022 8.118 0.678 0.236 1.356 0.471 2.035 0.674 13.219 3.956 17.815 11.75 19.333 17.702v76.713c-9.503-9.574-21.74-25.889-26.873-49.694h17.039v-22.549h-101.22v-280.14s11.445 16.719 15.475 25.107c8.638 17.981 14.165 36.27 15.954 56.049 1.932 21.355 4.706 42.637 7.321 63.925 0.412 3.348-0.51 4.909-3.417 6.576-17.033 9.767-27.046 29.046-24.464 47.231 3.033 21.357 15.417 35.047 35.523 42.1 0.33 0.116 0.895 0.321 1.437 0.52 1.444-8.736 3.564-16.845 6.176-24.344-0.102-0.057-0.202-0.112-0.306-0.172-4.803-2.792-9.938-5.75-13.327-9.906-7.411-9.086-5.976-21.852 2.687-29.734 6.328-5.758 13.711-9.242 23.221-7.676-1.014-9.776-1.949-19.479-3.038-29.166-2.153-19.162-4.948-38.271-6.472-57.482-2.861-36.058-13.898-68.847-36.552-97.377-11.288-14.216-24.673-26.067-40.152-35.547-1.131-0.692-2.335-1.275-3.54-1.833-0.42-0.194-0.946-0.158-1.705-0.269v354.69h82.278c12.65 59.656 66.543 86.531 66.543 86.531s54.168-25.693 66.641-86.531h82.183v-354.69z"/></svg></svg>
-            PROVIDENCE
-          </div>
-          <div class="navlinks"><span>Products</span><span>Why Us</span><span>Community</span><span>Become a Member</span></div>
-        </div>
-        <div class="hero">
-          <div>
-            <span class="badge2"><i></i>113 years of member-owned security</span>
-            <h1>Financial security,<br>rooted in faith.</h1>
-            <p class="lede">Life insurance, retirement savings, and final-expense planning for the Ukrainian Catholic community — from a non-profit society that returns its surplus to churches, scholarships, and Ukraine.</p>
-            <div class="btns"><span class="b-blue">Explore Products</span><span class="b-ghost">Talk to a Representative</span></div>
-            <div class="trust">★★★★★ Trusted since 1912 · Licensed in PA, NJ, MI</div>
-          </div>
-          <div class="ratecard">
-            <div class="rc-head"><div class="lbl">Current annuity rate</div><div class="big">4.0<small>% APR</small></div><div class="sub">Tax-deferred · Guaranteed principal</div></div>
-            <div class="rc-row"><b>Whole Life Insurance</b><span>Builds cash value</span></div>
-            <div class="rc-row"><b>IRA &amp; Roth IRA</b><span>Tax-advantaged</span></div>
-            <div class="rc-row"><b>College Tuition Fund</b><span>Scholarship eligible</span></div>
-            <div class="rc-row"><b>Final Expense Plan</b><span>Family protected</span></div>
-            <div class="rc-btn">Get a free consultation</div>
-          </div>
-        </div>
-        <div class="stats">
-          <div class="stat"><div class="v">113</div><div class="l">Years of service</div></div>
-          <div class="stat"><div class="v">1912</div><div class="l">Founded</div></div>
-          <div class="stat"><div class="v">210+</div><div class="l">Branches</div></div>
-          <div class="stat"><div class="v">3</div><div class="l">States licensed</div></div>
-        </div>
-        <div class="prods">
-          <div class="ph">Coverage for every stage of life</div>
-          <div class="pgrid">
-            <div class="pcard"><div class="ic"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></div><h4>Whole Life</h4><p>Permanent protection that builds cash value.</p></div>
-            <div class="pcard"><div class="ic"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M7 16l3-4 3 2 4-7"/></svg></div><h4>Annuities · 4.0%</h4><p>Tax-deferred, guaranteed-rate growth.</p></div>
-            <div class="pcard"><div class="ic"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l9 4-9 4-9-4 9-4zM5 11v4c0 1.5 3 3 7 3s7-1.5 7-3v-4"/></svg></div><h4>College Fund</h4><p>Tax-smart saving for tuition.</p></div>
-          </div>
-        </div>
-        <div class="vysh"><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i></div>
-        <div class="why">
-          <h3>The fraternal advantage</h3>
-          <p class="wsub">We are owned by our members, not shareholders. That single fact shapes everything we do.</p>
-          <div class="bgrid">
-            <div class="bcard"><div class="tick" style="background:var(--blue);color:#fff">✓</div><h5>Annual Scholarships</h5><p>Awarded every year to members and their families.</p></div>
-            <div class="bcard"><div class="tick" style="background:var(--gold);color:var(--navy)">✓</div><h5>Member Loans</h5><p>Preferential lending — the loans that built our churches.</p></div>
-            <div class="bcard"><div class="tick" style="background:var(--blue);color:#fff">✓</div><h5>Bilingual Service</h5><p>Personal support in Ukrainian and English.</p></div>
-            <div class="bcard"><div class="tick" style="background:var(--gold);color:var(--navy)">✓</div><h5>Surplus to Community</h5><p>Our surplus flows back to parishes and Ukraine.</p></div>
-          </div>
-        </div>
-        <div class="comm">
-          <div class="ccard"><h5>Churches Built</h5><p>Low-interest loans have sustained parishes for over a century.</p></div>
-          <div class="ccard"><h5>Youth &amp; Seminaries</h5><p>Support for youth organizations and Catholic schools.</p></div>
-          <div class="ccard"><h5>Relief for Ukraine</h5><p>Medical supplies and direct aid in its time of need.</p></div>
-        </div>
-        <div class="vysh"><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i><i style="background:#e6a012"></i><i style="background:#0057b7"></i></div>
-        <div class="contact">
-          <div>
-            <h3>Request a free consultation</h3>
-            <p class="csub">Tell us a little about your family and a bilingual representative will reach out — no pressure, no call centers.</p>
-            <div class="cinfo">
-              <div><b>Call</b><span>(215) 627-2445</span></div>
-              <div><b>Email</b><span>info@provassn.com</span></div>
-              <div><b>Visit</b><span>817 North Franklin Street, Philadelphia, PA</span></div>
-            </div>
-          </div>
-          <div class="cform">
-            <div class="frow"><div class="ff">First name</div><div class="ff">Last name</div></div>
-            <div class="ff">Email</div>
-            <div class="ff">I&rsquo;m interested in…</div>
-            <div class="submit">Request consultation</div>
-          </div>
-        </div>
-        <div class="cta2">
-          <div class="left">
-            <h3>Join the family</h3>
-            <p>Speak with a bilingual representative and become part of a society that has protected Ukrainian Catholic families since 1912.</p>
-            <span class="callbtn">Call (215) 627-2445</span>
-          </div>
-          <div class="right">
-            <svg viewBox="96.6 138.6 399 574.5" width="28" height="40" fill="#0b2a4a" preserveAspectRatio="xMidYMid meet"><path d="m229.32 545c0 0.564 0.019 1.124 0.027 1.686h26.348c-0.021-0.702-0.037-1.407-0.045-2.111-0.01-0.58-0.018-1.16-0.019-1.739-0.02-8.752 1.993-17.254 2.233-20.567 6.917-50.522 39.9-72.145 40.603-72.6 2.275 1.966 34.573 28.195 40.717 73.271 0.232 3.308 2.09 11.883 2.199 20.641 0.016 0.581 0.023 1.163 0.021 1.746-2e-3 0.453-8e-3 0.906-0.016 1.359h26.287c0.01-0.562 0.027-1.121 0.027-1.686 0-44.438-18.871-75.975-36.902-95.973h0.514c-15.414-32.495-18.191-68.848-16.604-104.93 1.518-34.486 2.652-78.986 3.951-113.48 0.709-18.846-3.809-36.292-16.58-51.511-0.774-0.922-3.188-3.236-3.849-3.659 0 0-3.071 2.771-3.843 3.69-12.771 15.22-17.288 32.665-16.579 51.51 1.298 34.493 2.433 78.993 3.951 113.48 1.579 35.907-0.087 72.666-15.955 104.69-17.903 19.767-36.486 51.129-36.486 96.181z"/><path d="m447.33 224.63c-0.759 0.11-1.285 0.074-1.705 0.269-1.205 0.558-2.409 1.141-3.54 1.833-15.479 9.479-28.864 21.331-40.152 35.547-22.653 28.53-33.69 61.319-36.552 97.377-1.523 19.211-4.318 38.32-6.472 57.482-1.089 9.687-2.024 19.39-3.038 29.166 9.51-1.566 16.893 1.918 23.221 7.676 8.662 7.883 10.098 20.648 2.687 29.734-3.39 4.156-8.524 7.114-13.327 9.906-0.18 0.104-0.356 0.203-0.53 0.297 2.668 7.489 4.84 15.567 6.324 24.246 0.563-0.206 1.167-0.426 1.513-0.547 20.106-7.053 32.49-20.742 35.523-42.1 2.582-18.186-7.431-37.465-24.464-47.231-2.907-1.667-3.829-3.229-3.417-6.576 2.615-21.288 5.39-42.569 7.321-63.925 1.789-19.779 7.316-38.067 15.954-56.049 4.029-8.389 15.475-25.107 15.475-25.107s0 187.09 0 280.14h-101.05v22.549h16.932c-5.077 24.299-17.379 40.557-26.932 49.984v-76.666c1.428-5.992 5.944-14.009 19.416-18.04 0.679-0.203 1.356-0.438 2.035-0.674-0.439-3.59-0.921-6.534-1.022-8.118-0.653-5.273-1.614-10.194-2.787-14.796-2.343 0.743-4.286 1.382-5.673 1.884-8.488 3.068-21.69 14.162-24.518 16.448-2.827-2.286-16.029-13.38-24.517-16.448-1.387-0.502-3.331-1.141-5.673-1.884-1.172 4.602-2.134 9.522-2.787 14.796-0.102 1.584-0.583 4.528-1.022 8.118 0.678 0.236 1.356 0.471 2.035 0.674 13.219 3.956 17.815 11.75 19.333 17.702v76.713c-9.503-9.574-21.74-25.889-26.873-49.694h17.039v-22.549h-101.22v-280.14s11.445 16.719 15.475 25.107c8.638 17.981 14.165 36.27 15.954 56.049 1.932 21.355 4.706 42.637 7.321 63.925 0.412 3.348-0.51 4.909-3.417 6.576-17.033 9.767-27.046 29.046-24.464 47.231 3.033 21.357 15.417 35.047 35.523 42.1 0.33 0.116 0.895 0.321 1.437 0.52 1.444-8.736 3.564-16.845 6.176-24.344-0.102-0.057-0.202-0.112-0.306-0.172-4.803-2.792-9.938-5.75-13.327-9.906-7.411-9.086-5.976-21.852 2.687-29.734 6.328-5.758 13.711-9.242 23.221-7.676-1.014-9.776-1.949-19.479-3.038-29.166-2.153-19.162-4.948-38.271-6.472-57.482-2.861-36.058-13.898-68.847-36.552-97.377-11.288-14.216-24.673-26.067-40.152-35.547-1.131-0.692-2.335-1.275-3.54-1.833-0.42-0.194-0.946-0.158-1.705-0.269v354.69h82.278c12.65 59.656 66.543 86.531 66.543 86.531s54.168-25.693 66.641-86.531h82.183v-354.69z"/></svg>
-            <b>info@provassn.com</b>
-            <span>817 North Franklin Street, Philadelphia, PA</span>
-          </div>
-        </div>
-        <div style="height:4px;background:linear-gradient(90deg,#0057b7 0 52%,#ffd400 52% 100%)"></div>
-        <div class="pfoot">
-          <svg viewBox="96.6 138.6 399 574.5" width="24" height="34" fill="#ffd400" preserveAspectRatio="xMidYMid meet"><path d="m229.32 545c0 0.564 0.019 1.124 0.027 1.686h26.348c-0.021-0.702-0.037-1.407-0.045-2.111-0.01-0.58-0.018-1.16-0.019-1.739-0.02-8.752 1.993-17.254 2.233-20.567 6.917-50.522 39.9-72.145 40.603-72.6 2.275 1.966 34.573 28.195 40.717 73.271 0.232 3.308 2.09 11.883 2.199 20.641 0.016 0.581 0.023 1.163 0.021 1.746-2e-3 0.453-8e-3 0.906-0.016 1.359h26.287c0.01-0.562 0.027-1.121 0.027-1.686 0-44.438-18.871-75.975-36.902-95.973h0.514c-15.414-32.495-18.191-68.848-16.604-104.93 1.518-34.486 2.652-78.986 3.951-113.48 0.709-18.846-3.809-36.292-16.58-51.511-0.774-0.922-3.188-3.236-3.849-3.659 0 0-3.071 2.771-3.843 3.69-12.771 15.22-17.288 32.665-16.579 51.51 1.298 34.493 2.433 78.993 3.951 113.48 1.579 35.907-0.087 72.666-15.955 104.69-17.903 19.767-36.486 51.129-36.486 96.181z"/><path d="m447.33 224.63c-0.759 0.11-1.285 0.074-1.705 0.269-1.205 0.558-2.409 1.141-3.54 1.833-15.479 9.479-28.864 21.331-40.152 35.547-22.653 28.53-33.69 61.319-36.552 97.377-1.523 19.211-4.318 38.32-6.472 57.482-1.089 9.687-2.024 19.39-3.038 29.166 9.51-1.566 16.893 1.918 23.221 7.676 8.662 7.883 10.098 20.648 2.687 29.734-3.39 4.156-8.524 7.114-13.327 9.906-0.18 0.104-0.356 0.203-0.53 0.297 2.668 7.489 4.84 15.567 6.324 24.246 0.563-0.206 1.167-0.426 1.513-0.547 20.106-7.053 32.49-20.742 35.523-42.1 2.582-18.186-7.431-37.465-24.464-47.231-2.907-1.667-3.829-3.229-3.417-6.576 2.615-21.288 5.39-42.569 7.321-63.925 1.789-19.779 7.316-38.067 15.954-56.049 4.029-8.389 15.475-25.107 15.475-25.107s0 187.09 0 280.14h-101.05v22.549h16.932c-5.077 24.299-17.379 40.557-26.932 49.984v-76.666c1.428-5.992 5.944-14.009 19.416-18.04 0.679-0.203 1.356-0.438 2.035-0.674-0.439-3.59-0.921-6.534-1.022-8.118-0.653-5.273-1.614-10.194-2.787-14.796-2.343 0.743-4.286 1.382-5.673 1.884-8.488 3.068-21.69 14.162-24.518 16.448-2.827-2.286-16.029-13.38-24.517-16.448-1.387-0.502-3.331-1.141-5.673-1.884-1.172 4.602-2.134 9.522-2.787 14.796-0.102 1.584-0.583 4.528-1.022 8.118 0.678 0.236 1.356 0.471 2.035 0.674 13.219 3.956 17.815 11.75 19.333 17.702v76.713c-9.503-9.574-21.74-25.889-26.873-49.694h17.039v-22.549h-101.22v-280.14s11.445 16.719 15.475 25.107c8.638 17.981 14.165 36.27 15.954 56.049 1.932 21.355 4.706 42.637 7.321 63.925 0.412 3.348-0.51 4.909-3.417 6.576-17.033 9.767-27.046 29.046-24.464 47.231 3.033 21.357 15.417 35.047 35.523 42.1 0.33 0.116 0.895 0.321 1.437 0.52 1.444-8.736 3.564-16.845 6.176-24.344-0.102-0.057-0.202-0.112-0.306-0.172-4.803-2.792-9.938-5.75-13.327-9.906-7.411-9.086-5.976-21.852 2.687-29.734 6.328-5.758 13.711-9.242 23.221-7.676-1.014-9.776-1.949-19.479-3.038-29.166-2.153-19.162-4.948-38.271-6.472-57.482-2.861-36.058-13.898-68.847-36.552-97.377-11.288-14.216-24.673-26.067-40.152-35.547-1.131-0.692-2.335-1.275-3.54-1.833-0.42-0.194-0.946-0.158-1.705-0.269v354.69h82.278c12.65 59.656 66.543 86.531 66.543 86.531s54.168-25.693 66.641-86.531h82.183v-354.69z"/></svg>
-          <div class="fl">Providence Association</div>
-          <div class="fm">Member-owned. Faith-rooted. Building financial security for Ukrainian Catholic families since 1912.</div>
-          <div class="fc">© 2026 Providence Association of Ukrainian Catholics in America</div>
-        </div>
-      </div>
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><div class="addr">🔒 <b>provassn.com</b></div><span class="samplebadge">Live preview</span></div>
+      <iframe class="pvframe" src="https://providence-ua-jade.vercel.app/" title="Live preview of the new Providence Association website" loading="lazy"></iframe>
     </div>
-    <p class="pvcap">A sample; the finished site is interactive and will differ in places.</p>
+    <p class="pvcap">A live, in-progress build. Open it full-screen at <a href="https://providence-ua-jade.vercel.app/" target="_blank" rel="noopener">providence-ua-jade.vercel.app</a>.</p>
   </section>
 
   <!-- WHAT'S BUILT / WORTH -->
@@ -488,16 +401,16 @@
     <h2>What this costs elsewhere.</h2>
     <div class="grid2">
       <div class="built">
-        <p class="lead">The design is the part that usually costs the most and takes the longest, and it&rsquo;s already finished. Every page is laid out and mobile-ready, with the calculators, schema, and search work the audit calls for. What&rsquo;s left is the build, and that&rsquo;s where the two options differ.</p>
+        <p class="lead">Design and front-end is where most of a build&rsquo;s cost and time go, and for the custom option that part is done; it&rsquo;s the live site above. The rest is real implementation: the schema and AI-search work, the metas, the sitemap, wiring up the calculators. None of it is trivial, and all of it is included.</p>
       </div>
       <div class="worthcard">
         <div class="ttl">What this normally costs</div>
         <div class="worthrow"><span>Comparable custom build (agency)</span><b>$15k–$30k</b></div>
-        <div class="worthrow"><span>Basic professional site (NJ avg.)</span><b>$4k–$8k</b></div>
+        <div class="worthrow"><span>This project at a NJ agency</span><b>from $10k</b></div>
         <div class="worthrow"><span>This project, from</span><b>$4,500</b></div>
         <div class="highlightprice">
           <div class="big">A fraction of agency rates</div>
-          <div class="cap">The same work a $15k agency would deliver, priced for a non-profit and cheaper to run than the site you have now.</div>
+          <div class="cap">The same work agencies bill five figures for, priced for a non-profit and cheaper to run than the site you have now.</div>
         </div>
       </div>
     </div>
@@ -507,7 +420,7 @@
   <section class="reveal" style="animation-delay:.17s">
     <div class="eyebrow">Your two options</div>
     <h2>Same website, two ways to build it.</h2>
-    <p>Either option clears the audit in full, and the finished site is the same. The difference is what runs underneath: a fully custom build, or your existing WordPress rebuilt to the same standard.</p>
+    <p>Either option clears the audit in full. They differ in how it&rsquo;s built and how polished it ends up: the custom build is the already-live version above; the WordPress build is the familiar-to-manage alternative, built fresh to come as close as the platform reasonably allows.</p>
 
     <div class="incl">
       <div class="ttl">Included in both options</div>
@@ -519,7 +432,7 @@
         <li>Speed and technical cleanup (caching, images, code)</li>
         <li>Consultation form with spam protection</li>
         <li>Sitemap fix, Google Business and analytics setup</li>
-        <li>Six months of support, with 3&ndash;5 rounds of changes</li>
+        <li>Three months of support, with 3 rounds of changes</li>
       </ul>
     </div>
 
@@ -528,16 +441,16 @@
         <div class="cap"></div>
         <div class="top">
           <h3>WordPress rebuild</h3>
-          <div class="for">Keep the platform your team knows, rebuilt to current standards.</div>
+          <div class="for">Familiar to manage, built fresh from the design.</div>
           <div class="price">$4,500</div>
-          <div class="pricenote">one-time · ready in ~3&ndash;4 weeks</div>
+          <div class="pricenote">one-time · ready in ~4&ndash;5 weeks</div>
         </div>
         <ul>
-          <li><span class="chk">✓</span>It stays on WordPress, so <b>no migration</b></li>
           <li><span class="chk">✓</span>You <b>edit content yourself</b>, in the dashboard you already use</li>
-          <li><span class="chk">✓</span>Rebuilt clean: schema, caching, no plugin bloat</li>
-          <li><span class="chk">✓</span>Runs on your current hosting</li>
-          <li class="muted"><span class="x">–</span>Plugins still need the occasional update</li>
+          <li><span class="chk">✓</span><b>No migration</b>: stays on WordPress and your current hosting</li>
+          <li><span class="chk">✓</span>Gets the full audit fix-list: schema, AI, metas, sitemap, speed</li>
+          <li class="muted"><span class="x">–</span>Built from scratch, so it still needs a few weeks to construct</li>
+          <li class="muted"><span class="x">–</span>Visuals won&rsquo;t be quite as sharp as the custom build</li>
         </ul>
       </div>
       <div class="tier feature">
@@ -545,30 +458,30 @@
         <div class="top">
           <span class="badge">Recommended</span>
           <h3>Custom build</h3>
-          <div class="for">The fastest version, and the least to maintain.</div>
-          <div class="price">$5,000</div>
-          <div class="pricenote">one-time · ready in ~3.5 weeks</div>
+          <div class="for">The polished build you can already see live above.</div>
+          <div class="price"><span class="was">$10,000</span> $5,000</div>
+          <div class="pricenote">one-time · ready in ~3 weeks · design already built</div>
         </div>
         <ul>
+          <li><span class="chk">✓</span><b>Already designed and built</b>: it&rsquo;s the live preview above</li>
           <li><span class="chk">✓</span>Built on <b>Next.js</b>, the framework behind Netflix and OpenAI</li>
           <li><span class="chk">✓</span><b>Loads in well under a second</b>, and passes Core Web Vitals</li>
-          <li><span class="chk">✓</span>The cleanest possible signals for <b>Google and AI search</b></li>
+          <li><span class="chk">✓</span>The cleanest signals for <b>Google and AI search</b></li>
           <li><span class="chk">✓</span>Hardened by default, with <b>almost nothing to maintain</b></li>
-          <li><span class="chk">✓</span>Hosting about $20/mo on Vercel, paid directly</li>
         </ul>
       </div>
     </div>
 
     <div class="addon">
-      <div class="card"><span class="h">Adding Ukrainian</span>A full Ukrainian translation (switcher, page content, and Ukrainian-language SEO) sits on top of either option, priced separately and modestly. Given your bilingual staff and the audience in finding #2, it may be the highest-return part of the project.</div>
-      <div class="card"><span class="h">Beyond six months</span>Updates, edits, and ongoing maintenance are available on a monthly plan, <b>quoted on request</b> and with no obligation to take it. Either way, your domain and BlueJet email stay exactly as they are.</div>
+      <div class="card"><span class="h">Adding Ukrainian</span>A full Ukrainian translation (switcher, page content, and Ukrainian-language SEO) can be added to either option. Just ask and I&rsquo;ll include it in your quote. Given your bilingual staff and the audience in finding #2, it may be the highest-return part of the project.</div>
+      <div class="card"><span class="h">Beyond three months</span>Updates, edits, and ongoing maintenance are available on a monthly plan, <b>quoted on request</b> and with no obligation to take it. Either way, your domain and BlueJet email stay exactly as they are.</div>
     </div>
 
     <div class="custom">
       <div class="cic">✎</div>
       <div>
         <h3>Need something else?</h3>
-        <p>A members&rsquo; portal, online applications, or online payments are all possible. Tell me what you have in mind and I&rsquo;ll quote it separately.</p>
+        <p>Tell me what changes you want or what to add, and I&rsquo;ll put together a custom quote.</p>
       </div>
       <div class="cta">Request a custom quote</div>
     </div>
@@ -582,26 +495,26 @@
       <div class="step"><h4>You pick an option</h4><p>Custom or WordPress. If you&rsquo;re unsure, tell me your priorities and budget and I&rsquo;ll recommend one.</p></div>
       <div class="step"><h4>We talk specifics</h4><p>One kickoff call to settle copy, calculators, and design direction. You send your logo and current rates.</p></div>
       <div class="step"><h4>I build, you approve</h4><p>Nothing goes live until you&rsquo;ve seen it and signed off. No surprises.</p></div>
-      <div class="step"><h4>Launch, then six months of support</h4><p>It goes live on your domain, on schedule. After that I&rsquo;m on hand for six months and your 3&ndash;5 rounds of changes.</p></div>
+      <div class="step"><h4>Launch, then three months of support</h4><p>It goes live on your domain, on schedule. After that I&rsquo;m on hand for three months and your 3 rounds of changes.</p></div>
     </div>
 
     <div class="terms">
       <div class="ln"><span class="k">To get started</span><span>A 50% deposit; the balance is due on launch.</span></div>
-      <div class="ln"><span class="k">Timeline</span><span>About 3&ndash;4 weeks for the WordPress option · ~3.5 weeks for the custom build.</span></div>
+      <div class="ln"><span class="k">Timeline</span><span>About 4&ndash;5 weeks for the WordPress option · ~3 weeks for the custom build.</span></div>
       <div class="ln"><span class="k">Hosting</span><span>The custom build runs on Vercel (about $20/month, paid directly); WordPress stays on your current host. Your domain and BlueJet email stay as they are either way.</span></div>
       <div class="ln"><span class="k">What I&rsquo;ll need</span><span>A short kickoff call, your logo and final rates, and access to your domain name.</span></div>
-      <div class="ln"><span class="k">Support</span><span>Six months of support after launch, including 3&ndash;5 rounds of changes. Ongoing maintenance available afterward, quoted on request.</span></div>
+      <div class="ln"><span class="k">Support</span><span>Three months of support after launch, including 3 rounds of changes. Ongoing maintenance available afterward, quoted on request.</span></div>
     </div>
 
     <div class="sign">
       <div class="sigbox">Accepted on behalf of Providence Association<br><br><br>__________________________________<br>Signature &amp; date</div>
-      <div class="sigbox">Prepared by [Your Name / Studio]<br>[your email] · [your phone]<br><br>__________________________________<br>Signature &amp; date</div>
+      <div class="sigbox">Prepared by NovaUA<br>[your email] · [your phone]<br><br>__________________________________<br>Signature &amp; date</div>
     </div>
   </section>
 
   <div class="footer">
     <span><b>Website Modernization Proposal</b> · Providence Association of Ukrainian Catholics in America</span>
-    <span>Prepared by [Your Name] · June 2026</span>
+    <span>Prepared by NovaUA · June 2026</span>
   </div>
 </div>
 </body>
